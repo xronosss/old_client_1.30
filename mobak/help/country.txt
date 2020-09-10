@@ -1,0 +1,7 @@
+﻿
+count:1
+name1:Россия
+smsprefix1:mancer
+numCount1:1
+moneyName1:руб.
+num1-1:0000 1 1

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Nokia-MIDlet-On-Screen-Keypad: no
+MIDlet-Description: LordMancer
+MIDlet-1: Lordmancer, /mobak/res/icon.png, mobak.Main2
+MIDlet-Name: Lordmancer
+client_type: 4
+MIDlet-Permissions: javax.microedition.io.Connector.socket
+MIDlet-Version: 1.30.0
+Nokia-MIDlet-Category: Game
+MicroEdition-Profile: MIDP-2.0
+Ant-Version: Apache Ant 1.8.2
+MIDlet-Permissions-Opt: javax.microedition.io.Connector.sms,javax.wire
+ less.messaging.sms.send
+4: lordmancer.ru
+MIDlet-Vendor: Mobilniy Aktiv LLC
+MicroEdition-Configuration: CLDC-1.1
+Nokia-MIDlet-App-Orientation: portrait
+Created-By: 1.7.0_01-b08 (Oracle Corporation)
+MIDlet-Icon: /mobak/res/icon.png
+
