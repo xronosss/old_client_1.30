@@ -745,8 +745,7 @@ public final class Hero {
    // $FF: renamed from: a () void
    public static void method_926() {
       OutputGameMessage var10000 = new OutputGameMessage(MessageProcessor.packetTypes[69], (short)0, MessageProcessor.packetTypes[69]);
-      OutputGameMessage var0 = var10000;
-      SocketListener.self.sendCommand(var0);
+      SocketListener.self.sendCommand(var10000);
    }
 
    // $FF: renamed from: a (java.lang.String[]) void

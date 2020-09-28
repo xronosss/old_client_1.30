@@ -220,10 +220,7 @@ public abstract class Screen implements class_1 {
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
    public boolean method_38(Button var1) {
       if(var1 != null) {
-         int var2 = var1.field_543;
-         OutputGameMessage var10000;
-         OutputGameMessage var4;
-         Main2 var8;
+         OutputGameMessage gameMessage;
          switch((byte)var1.field_543) {
          case 30:
             if(var1 != null) {
@@ -250,8 +247,7 @@ public abstract class Screen implements class_1 {
             return true;
          case 64:
             class_28 var9 = new class_28(this);
-            class_28 var6 = var9;
-            ScreenDrawer.method_334(MessagesContainer.getMessage(135), MessagesContainer.getMessage(185), "", var6);
+            ScreenDrawer.method_334(MessagesContainer.getMessage(135), MessagesContainer.getMessage(185), "", var9);
             return true;
          case 71:
             this.method_76();
@@ -278,24 +274,19 @@ public abstract class Screen implements class_1 {
             Hero.method_926();
             return true;
          case 103:
-            var8 = Main2.self;
             Main2.gotoUrl1(Main2.self.method_852());
             return true;
          case 104:
-            var8 = Main2.self;
             Main2.gotoUrl1(Main2.self.method_851());
             return true;
          case 106:
-            var10000 = new OutputGameMessage(MessageProcessor.packetTypes[111], (short)0, MessageProcessor.packetTypes[111]);
-            var4 = var10000;
-            SocketListener.self.sendCommand(var4);
+            gameMessage = new OutputGameMessage(MessageProcessor.packetTypes[111], (short)0, MessageProcessor.packetTypes[111]);
+            SocketListener.self.sendCommand(gameMessage);
             return true;
          default:
-            var2 = var1.field_543;
             short var5 = PopupMenu.method_636((byte)var1.field_543);
-            var10000 = new OutputGameMessage(var5);
-            var4 = var10000;
-            SocketListener.self.sendCommand(var4);
+            gameMessage = new OutputGameMessage(var5);
+            SocketListener.self.sendCommand(gameMessage);
          }
       }
 

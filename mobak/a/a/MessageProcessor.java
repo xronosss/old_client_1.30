@@ -433,7 +433,7 @@ public final class MessageProcessor {
          var4 = method_1018();
          break;
       case 62:
-         var4 = method_1019();
+         var4 = invitation();
          break;
       case 63:
          var4 = method_1020();
@@ -721,7 +721,7 @@ public final class MessageProcessor {
    }
 
    // $FF: renamed from: a () mobak.b.b.i
-   private static final MapObject getMapObject() {
+   private static final MapObject readMapObject() {
       try {
          boolean var1 = false;
          int var2 = PacketManager.readInt();
@@ -1020,7 +1020,7 @@ public final class MessageProcessor {
             short mapObjectsCount = PacketManager.readShort();
 
             for(int i = 0; i < mapObjectsCount; ++i) {
-               getMapObject();
+               readMapObject();
             }
 
             short var7 = PacketManager.readShort();
@@ -1621,25 +1621,24 @@ public final class MessageProcessor {
    }
 
    // $FF: renamed from: B () boolean
-   private static final boolean method_1019() {
+   private static final boolean invitation() {
       try {
-         short var0;
-         class_76[] var1 = new class_76[var0 = PacketManager.readShort()];
+         short count = PacketManager.readShort();
+         class_76[] heroes = new class_76[count];
 
-         for(short var2 = 0; var2 < var0 && !PacketManager.packetDataIsEmpty(); ++var2) {
-            int var3 = PacketManager.readInt();
-            short var4 = PacketManager.readShort();
+         for(short i = 0; i < count && !PacketManager.packetDataIsEmpty(); ++i) {
+            int Id = PacketManager.readInt();
+            short imageIndex = PacketManager.readShort();
             byte var5 = PacketManager.readByte();
             byte var6 = PacketManager.readByte();
             byte var7 = PacketManager.readByte();
-            String var8 = PacketManager.readString();
-            class_76 var10002 = new class_76(var4, var5, var6, var7, var8, var3);
-            var1[var2] = var10002;
+            String name = PacketManager.readString();
+            class_76 enemyHero = new class_76(imageIndex, var5, var6, var7, name, Id);
+            heroes[i] = enemyHero;
          }
 
-         ScreenDrawer var10000 = ScreenDrawer.self;
-         class_41 var10001 = new class_41(var1);
-         var10000.method_340(var10001, true);
+         class_41 var10001 = new class_41(heroes);
+         ScreenDrawer.self.method_340(var10001, true);
       } catch (Exception var9) {
          SocketListener.logMessage("invitation " + var9.getMessage());
       }
@@ -1932,37 +1931,36 @@ public final class MessageProcessor {
    // $FF: renamed from: a () mobak.b.b.a.v
    private static Button method_1034() throws Exception {
       Button var10000 = new Button(PacketManager.readInt());
-      Button var0 = var10000;
       short var2 = PacketManager.readShort();
       var10000.field_544 = var2;
-      int var1 = var0.field_543;
-      if((var0.field_543 >> 24 & 32) == 32) {
+      int var1 = var10000.field_543;
+      if((var10000.field_543 >> 24 & 32) == 32) {
          var2 = PacketManager.readShort();
-         var0.field_545 = var2;
+         var10000.field_545 = var2;
       }
 
-      if(var0.method_651()) {
-         var0.method_654(PacketManager.readString());
+      if(var10000.method_651()) {
+         var10000.method_654(PacketManager.readString());
       }
 
-      if(var0.method_657()) {
-         byte var6;
-         String[] var7 = new String[var6 = PacketManager.readByte()];
+      if(var10000.method_657()) {
+         byte var6 = PacketManager.readByte();
+         String[] var7 = new String[var6];
          short[] var3 = new short[var6];
          int[] var4 = new int[var6];
 
-         for(byte var5 = 0; var5 < var6; ++var5) {
-            var7[var5] = PacketManager.readString();
-            var3[var5] = PacketManager.readShort();
-            var4[var5] = PacketManager.readInt();
+         for(byte i = 0; i < var6; ++i) {
+            var7[i] = PacketManager.readString();
+            var3[i] = PacketManager.readShort();
+            var4[i] = PacketManager.readInt();
          }
 
-         var0.method_655(var7);
-         var0.field_548 = var3;
-         var0.field_549 = var4;
+         var10000.method_655(var7);
+         var10000.field_548 = var3;
+         var10000.field_549 = var4;
       }
 
-      return var0;
+      return var10000;
    }
 
    // $FF: renamed from: P () boolean
@@ -2015,13 +2013,10 @@ public final class MessageProcessor {
 
    // $FF: renamed from: Q () boolean
    private static boolean method_1036() throws Exception {
-      StrategicScreen var10000;
       switch(PacketManager.readByte()) {
       case 2:
-         var10000 = ScreenDrawer.self.strategicScreen;
-      case 3:
-         var10000 = ScreenDrawer.self.strategicScreen;
-      case 4:
+         case 3:
+         case 4:
          ScreenDrawer.self.method_342();
       default:
          Screen var0;
@@ -2049,43 +2044,42 @@ public final class MessageProcessor {
    // $FF: renamed from: R () boolean
    private static boolean method_1037() throws Exception {
       class_37 var10000 = new class_37(PacketManager.readInt(), PacketManager.readShort());
-      class_37 var0 = var10000;
       var10000.method_41(PacketManager.readShort());
-      var0.setCurrentMenuName(PacketManager.readString());
-      String[] var1 = new String[class_37.method_202(var0.method_205())];
+      var10000.setCurrentMenuName(PacketManager.readString());
+      String[] var1 = new String[class_37.method_202(var10000.method_205())];
 
       short var2;
       for(var2 = 0; var2 < var1.length; ++var2) {
          var1[var2] = PacketManager.readString();
       }
 
-      var0.method_208(var1, 0);
-      var1 = new String[class_37.method_202(var0.method_206())];
+      var10000.method_208(var1, 0);
+      var1 = new String[class_37.method_202(var10000.method_206())];
 
       for(var2 = 0; var2 < var1.length; ++var2) {
          var1[var2] = PacketManager.readString();
       }
 
-      var0.method_208(var1, 1);
-      var0.method_209(0, PacketManager.readByte(), PacketManager.readByte());
-      var0.method_209(1, PacketManager.readByte(), PacketManager.readByte());
-      var0.method_211(0, PacketManager.readShort());
-      var0.method_211(1, PacketManager.readShort());
-      var0.method_212(0, PacketManager.readByte());
-      var0.method_212(1, PacketManager.readByte());
+      var10000.method_208(var1, 1);
+      var10000.method_209(0, PacketManager.readByte(), PacketManager.readByte());
+      var10000.method_209(1, PacketManager.readByte(), PacketManager.readByte());
+      var10000.method_211(0, PacketManager.readShort());
+      var10000.method_211(1, PacketManager.readShort());
+      var10000.method_212(0, PacketManager.readByte());
+      var10000.method_212(1, PacketManager.readByte());
       byte var4 = PacketManager.readByte();
-      var0.method_210(0, (var4 & 8) > 0, (var4 & 4) > 0);
-      var0.method_210(1, (var4 & 2) > 0, (var4 & 1) > 0);
+      var10000.method_210(0, (var4 & 8) > 0, (var4 & 4) > 0);
+      var10000.method_210(1, (var4 & 2) > 0, (var4 & 1) > 0);
       boolean var3;
       if(var3 = PacketManager.readByte() != 0) {
-         var0.method_200();
+         var10000.method_200();
       }
 
       Object var5;
-      if(!var0.method_215()) {
-         var0.method_213(0, PacketManager.readShort());
+      if(!var10000.method_215()) {
+         var10000.method_213(0, PacketManager.readShort());
          var5 = null;
-         switch(var0.method_207()) {
+         switch(var10000.method_207()) {
          case 1:
             var5 = readUnits(true);
             break;
@@ -2093,12 +2087,12 @@ public final class MessageProcessor {
             var5 = readItems(false);
          }
 
-         var0.method_201((byte)0, (Thing[])var5);
+         var10000.method_201((byte)0, (Thing[])var5);
       }
 
-      var0.method_213(1, PacketManager.readShort());
+      var10000.method_213(1, PacketManager.readShort());
       var5 = null;
-      switch(var0.method_207()) {
+      switch(var10000.method_207()) {
       case 1:
          var5 = readUnits(true);
          break;
@@ -2106,13 +2100,13 @@ public final class MessageProcessor {
          var5 = readItems(var3);
       }
 
-      var0.method_201((byte)1, (Thing[])var5);
-      if(var0.method_214()) {
+      var10000.method_201((byte)1, (Thing[])var5);
+      if(var10000.method_214()) {
          ScreenDrawer.self.method_346();
       }
 
-      var0.method_127(var3);
-      ScreenDrawer.self.method_340(var0, true);
+      var10000.method_127(var3);
+      ScreenDrawer.self.method_340(var10000, true);
       return true;
    }
 
@@ -2214,19 +2208,18 @@ public final class MessageProcessor {
    // $FF: renamed from: ab () boolean
    private static final boolean method_1048() {
       Button var10000 = new Button((byte)30);
-      Button var0 = var10000;
       short var2 = packetTypes[86];
       var10000.field_544 = var2;
-      var0.method_656((short)261);
-      var0.method_655(new String[]{MessagesContainer.getMessage(262, new String[]{String.valueOf(GlobalStorage.field_563)})});
+      var10000.method_656((short)261);
+      var10000.method_655(new String[]{MessagesContainer.getMessage(262, new String[]{String.valueOf(GlobalStorage.field_563)})});
       short[] var3 = new short[]{(short)3};
-      var0.field_548 = var3;
+      var10000.field_548 = var3;
       int[] var4 = new int[]{2};
-      var0.field_549 = var4;
-      var0.method_654(MessagesContainer.getMessage(263));
+      var10000.field_549 = var4;
+      var10000.method_654(MessagesContainer.getMessage(263));
       var2 = packetTypes[86];
-      var0.field_545 = var2;
-      ScreenDrawer.self.GetScreen().method_38(var0);
+      var10000.field_545 = var2;
+      ScreenDrawer.self.GetScreen().method_38(var10000);
       return true;
    }
 
@@ -2293,11 +2286,11 @@ public final class MessageProcessor {
    // $FF: renamed from: ag () boolean
    private static final boolean method_1053() throws Exception {
       SocketListener.self.method_534();
-      boolean var0 = PacketManager.readByte() != 0;
-      String var1 = PacketManager.readString();
-      class_13 var10002 = new class_13(var0);
-      ScreenDrawer.createNotification("", var1, var10002);
-      if(var0 && userData != null) {
+      boolean isNeedSaveLoginAndPass = PacketManager.readByte() != 0;
+      String message = PacketManager.readString();
+      class_13 userDataErrorNotification = new class_13(isNeedSaveLoginAndPass);
+      ScreenDrawer.createNotification("", message, userDataErrorNotification);
+      if(isNeedSaveLoginAndPass && userData != null) {
          Main2.self.rmsManager.setString((byte)17, userData.login);
          Main2.self.rmsManager.setString((byte)2, userData.password);
       }

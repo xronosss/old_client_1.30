@@ -25,10 +25,10 @@ public final class class_76 extends Thing {
 
 
    // $FF: renamed from: <init> (short, byte, byte, byte, java.lang.String, int) void
-   public class_76(short var1, byte var2, byte var3, byte var4, String var5, int var6) {
+   public class_76(short imageIndex, byte var2, byte var3, byte var4, String name, int Id) {
       super();
-      super.Id = var6;
-      super.imageIndex = var1;
+      super.Id = Id;
+      super.imageIndex = imageIndex;
       this.field_590 = var2;
       this.field_591 = var3;
       var2 = var4;
@@ -64,7 +64,7 @@ public final class class_76 extends Thing {
          }
       }
 
-      this.field_589 = var5;
+      this.field_589 = name;
    }
 
    // $FF: renamed from: e () byte

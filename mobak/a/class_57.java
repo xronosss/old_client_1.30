@@ -142,7 +142,7 @@ final class class_57 implements Runnable {
                      var1 = true;
                   }
                } else if((var3 -= var11) == 0) {
-                  this.method_516();
+                  this.putPkg();
                   var2 = 0;
                   var3 = SocketListener.field_455;
                   var1 = false;
@@ -161,7 +161,7 @@ final class class_57 implements Runnable {
    }
 
    // $FF: renamed from: a () void
-   private synchronized void method_516() {
+   private synchronized void putPkg() {
       try {
          byte var1 = SocketListener.method_520(this.field_453);
          if(this.field_452 == 0) {

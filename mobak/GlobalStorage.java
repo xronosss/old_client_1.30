@@ -303,37 +303,37 @@ public final class GlobalStorage {
             field_565[var4] = -1;
          }
 
-         for(byte var12 = 0; var12 < 50; ++var12) {
-            for(byte var5 = 0; var5 < 50; ++var5) {
-               byte var6;
+         for(byte y = 0; y < 50; ++y) {
+            for(byte x = 0; x < 50; ++x) {
+               byte currentByte;
                int var7;
-               if((var6 = (byte)(var0[var12 * 50 + var5] & 15)) != 0 && var6 != 6 && var6 != 7 && (var7 = var1.nextInt(var0.length)) < 300) {
-                  boolean var8 = var5 > 0 && (var0[var12 * 50 + var5 - 1] & 15) == var6;
-                  boolean var9 = var5 < 49 && (var0[var12 * 50 + var5 + 1] & 15) == var6;
-                  boolean var10 = var12 > 0 && (var0[(var12 - 1) * 50 + var5] & 15) == var6;
-                  boolean var11 = var12 < 49 && (var0[(var12 + 1) * 50 + var5] & 15) == var6;
+               if((currentByte = (byte)(var0[y * 50 + x] & 15)) != 0 && currentByte != 6 && currentByte != 7 && (var7 = var1.nextInt(var0.length)) < 300) {
+                  boolean var8 = x > 0 && (var0[y * 50 + x - 1] & 15) == currentByte;
+                  boolean var9 = x < 49 && (var0[y * 50 + x + 1] & 15) == currentByte;
+                  boolean var10 = y > 0 && (var0[(y - 1) * 50 + x] & 15) == currentByte;
+                  boolean var11 = y < 49 && (var0[(y + 1) * 50 + x] & 15) == currentByte;
                   if(var8 && var9 && var10 && var11) {
-                     if(var2 < 150 && var7 < 150 && var6 != 8) {
+                     if(var2 < 150 && var7 < 150 && currentByte != 8) {
                         var7 = var2 * 3;
-                        field_565[var7] = var5;
-                        field_565[var7 + 1] = var12;
+                        field_565[var7] = x;
+                        field_565[var7 + 1] = y;
                         byte var17 = 3;
-                        if((var0[var12 * 50 + var5] & 15) == 1) {
+                        if((var0[y * 50 + x] & 15) == 1) {
                            var17 = 1;
                         }
 
-                        if((var0[var12 * 50 + var5] & 15) == 3) {
+                        if((var0[y * 50 + x] & 15) == 3) {
                            var17 = 4;
                         }
 
                         field_565[var7 + 2] = (byte)var1.nextInt(var17);
                         ++var2;
-                     } else if(var6 == 8 && var3 < 300) {
+                     } else if(currentByte == 8 && var3 < 300) {
                         var7 = var3 * 5;
-                        field_566[var7] = var5;
-                        field_566[var7 + 1] = var12;
+                        field_566[var7] = x;
+                        field_566[var7 + 1] = y;
                         String var15 = null;
-                        switch(var6) {
+                        switch(currentByte) {
                         case 8:
                            var15 = "animDecorLava.png";
                         default:

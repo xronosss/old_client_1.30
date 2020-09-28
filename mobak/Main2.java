@@ -66,8 +66,8 @@ public class Main2 extends MIDlet implements class_1 {
       this.field_664 = -1;
 
       try {
-         InputStream var1;
-         byte[] var2 = method_862(var1 = this.getClass().getResourceAsStream("/mobak/res/splash.bin2"));
+         InputStream var1 = this.getClass().getResourceAsStream("/mobak/res/splash.bin2");
+         byte[] var2 = method_862(var1);
          var1.close();
          if(var2 != null) {
             GlobalStorage.createMap(var2);
@@ -538,8 +538,7 @@ public class Main2 extends MIDlet implements class_1 {
 
    // $FF: renamed from: c () void
    public static void method_859() {
-      class_18 var10000 = new class_18();
-      class_18 var0 = var10000;
+      class_18 var0 = new class_18();
       ScreenDrawer.method_334(MessagesContainer.getLine(135), MessagesContainer.getLine(229), MessagesContainer.getLine(276), var0);
    }
 
@@ -656,15 +655,15 @@ public class Main2 extends MIDlet implements class_1 {
             }
 
             Hero.self.heroId = var1.rmsManager.getInt((byte)1, -1);
-            long var19 = var1.rmsManager.getLong((byte)13, -1L);
+            long phoneNumber = var1.rmsManager.getLong((byte)13, -1L);
             Hero.self.login = var1.rmsManager.getString((byte)17, "");
             if(Hero.self.login.equals("")) {
                Hero.self.login = var1.getAppProperty("login");
                var1.rmsManager.setString((byte)17, Hero.self.login);
             }
 
-            if((Hero.self.login == null || Hero.self.login.equals("")) && var19 > 0L) {
-               Hero.self.login = String.valueOf(var19);
+            if((Hero.self.login == null || Hero.self.login.equals("")) && phoneNumber > 0L) {
+               Hero.self.login = String.valueOf(phoneNumber);
             }
 
             Hero.self.login = checkLogin(Hero.self.login);
@@ -839,8 +838,8 @@ public class Main2 extends MIDlet implements class_1 {
    }
 
    // $FF: renamed from: a (mobak.Main2) java.lang.String
-   static String getPassword(Main2 var0) {
-      return var0.password;
+   static String getPassword(Main2 self) {
+      return self.password;
    }
 
    // $FF: renamed from: b (mobak.Main2) java.lang.String

@@ -42,9 +42,9 @@ public final class StrategicScreen extends Screen {
    // $FF: renamed from: e boolean
    private static boolean field_67;
    // $FF: renamed from: h byte
-   private byte field_68;
+   private byte heroPosiyionX;
    // $FF: renamed from: i byte
-   private byte field_69;
+   private byte heroPositionY;
    // $FF: renamed from: b short
    private static short field_70;
    // $FF: renamed from: c short
@@ -263,7 +263,7 @@ public final class StrategicScreen extends Screen {
 
          return true;
       case 75:
-         if((var5 = GlobalStorage.method_683(this.field_68, this.field_69)) != null) {
+         if((var5 = GlobalStorage.method_683(this.heroPosiyionX, this.heroPositionY)) != null) {
             if(var5.getType() == 2) {
                var10000 = new OutputGameMessage(MessageProcessor.packetTypes[84]);
                var7 = var10000;
@@ -324,36 +324,36 @@ public final class StrategicScreen extends Screen {
    protected final void method_39(int var1) {
       if(!Hero.self.method_888()) {
          if(ScreenDrawer.self.getGameAction(var1) == 1) {
-            --this.field_69;
-            if(this.field_69 < 0) {
-               this.field_69 = 0;
+            --this.heroPositionY;
+            if(this.heroPositionY < 0) {
+               this.heroPositionY = 0;
             }
 
             if(this.method_105() < field_61 && (field_61 -= 50) < 0) {
                field_61 = 0;
             }
          } else if(ScreenDrawer.self.getGameAction(var1) == 6) {
-            ++this.field_69;
-            if(this.field_69 >= 50) {
-               this.field_69 = 49;
+            ++this.heroPositionY;
+            if(this.heroPositionY >= 50) {
+               this.heroPositionY = 49;
             }
 
             if(this.method_105() > field_61 + (ScreenDrawer.self.getHeight() - PopupMenu.method_583()) && (field_61 += 50) + ScreenDrawer.self.getHeight() - PopupMenu.method_583() > 2500) {
                field_61 = 2500 - ScreenDrawer.self.getHeight() + PopupMenu.method_583();
             }
          } else if(ScreenDrawer.self.getGameAction(var1) == 2) {
-            --this.field_68;
-            if(this.field_68 < 0) {
-               this.field_68 = 0;
+            --this.heroPosiyionX;
+            if(this.heroPosiyionX < 0) {
+               this.heroPosiyionX = 0;
             }
 
             if(this.method_104() < field_60 && (field_60 -= 50) < 0) {
                field_60 = 0;
             }
          } else if(ScreenDrawer.self.getGameAction(var1) == 5) {
-            ++this.field_68;
-            if(this.field_68 >= 50) {
-               this.field_68 = 49;
+            ++this.heroPosiyionX;
+            if(this.heroPosiyionX >= 50) {
+               this.heroPosiyionX = 49;
             }
 
             if(this.method_104() > field_60 + ScreenDrawer.self.getWidth() && (field_60 += 50) + ScreenDrawer.self.getWidth() > 2500) {
@@ -369,16 +369,16 @@ public final class StrategicScreen extends Screen {
    private void method_81() {
       this.method_82((byte[][])null);
       this.createWaveMatrix();
-      if(this.field_68 != Hero.self.getPositionX() || this.field_69 != Hero.self.getPositionY()) {
-         if(GlobalStorage.method_688(this.field_68, this.field_69) >= 0) {
+      if(this.heroPosiyionX != Hero.self.getPositionX() || this.heroPositionY != Hero.self.getPositionY()) {
+         if(GlobalStorage.method_688(this.heroPosiyionX, this.heroPositionY) >= 0) {
             this.method_82((byte[][])null);
-            if((Math.abs(this.field_68 - Hero.self.getPositionX()) != 1 || this.field_69 - Hero.self.getPositionY() != 0) && (Math.abs(this.field_69 - Hero.self.getPositionY()) != 1 || this.field_68 - Hero.self.getPositionX() != 0)) {
+            if((Math.abs(this.heroPosiyionX - Hero.self.getPositionX()) != 1 || this.heroPositionY - Hero.self.getPositionY() != 0) && (Math.abs(this.heroPositionY - Hero.self.getPositionY()) != 1 || this.heroPosiyionX - Hero.self.getPositionX() != 0)) {
                if(this.field_77 == null) {
                   return;
                }
 
-               short var1 = this.method_108((short)this.field_68);
-               short var2 = this.method_109((short)this.field_69);
+               short var1 = this.method_108((short)this.heroPosiyionX);
+               short var2 = this.method_109((short)this.heroPositionY);
                if(var1 >= 0 && var1 < this.field_77.length) {
                   if(var2 >= 0 && var2 < this.field_77[var1].length) {
                      byte[] var3 = new byte[]{(byte)-1, (byte)-1, (byte)-1, (byte)-1};
@@ -413,16 +413,16 @@ public final class StrategicScreen extends Screen {
                      byte[][] var6 = null;
                      switch(var4) {
                      case 0:
-                        var6 = this.method_115((byte)(this.field_68 - 1), this.field_69);
+                        var6 = this.method_115((byte)(this.heroPosiyionX - 1), this.heroPositionY);
                         break;
                      case 1:
-                        var6 = this.method_115((byte)(this.field_68 + 1), this.field_69);
+                        var6 = this.method_115((byte)(this.heroPosiyionX + 1), this.heroPositionY);
                         break;
                      case 2:
-                        var6 = this.method_115(this.field_68, (byte)(this.field_69 + 1));
+                        var6 = this.method_115(this.heroPosiyionX, (byte)(this.heroPositionY + 1));
                         break;
                      case 3:
-                        var6 = this.method_115(this.field_68, (byte)(this.field_69 - 1));
+                        var6 = this.method_115(this.heroPosiyionX, (byte)(this.heroPositionY - 1));
                      }
 
                      this.method_82(var6);
@@ -439,12 +439,12 @@ public final class StrategicScreen extends Screen {
             return;
          }
 
-         if(!GlobalStorage.method_709(GlobalStorage.method_702((short)this.field_68, (short)this.field_69))) {
+         if(!GlobalStorage.method_709(GlobalStorage.method_702((short)this.heroPosiyionX, (short)this.heroPositionY))) {
             this.method_82((byte[][])null);
             return;
          }
 
-         this.method_82(this.method_115(this.field_68, this.field_69));
+         this.method_82(this.method_115(this.heroPosiyionX, this.heroPositionY));
       }
 
    }
@@ -465,9 +465,9 @@ public final class StrategicScreen extends Screen {
 
    // $FF: renamed from: a (byte, byte, boolean) void
    public final void method_83(byte var1, byte var2, boolean var3) {
-      this.field_68 = var1;
-      this.field_69 = var2;
-      this.method_82(this.method_115(this.field_68, this.field_69));
+      this.heroPosiyionX = var1;
+      this.heroPositionY = var2;
+      this.method_82(this.method_115(this.heroPosiyionX, this.heroPositionY));
       field_60 = var1 * 50;
       field_61 = var2 * 50;
       var1 = (byte)(ScreenDrawer.self.getWidth() / 50);
@@ -545,18 +545,18 @@ public final class StrategicScreen extends Screen {
                try {
                   var10000 = new OutputGameMessage(MessageProcessor.packetTypes[29], (short)3, MessageProcessor.packetTypes[21], true);
                   OutputGameMessage var7 = var10000;
-                  if(var6.field_68 == 0) {
+                  if(var6.heroPosiyionX == 0) { //лево
                      var7.addToBody((byte)8);
-                  } else if(var6.field_69 == 0) {
+                  } else if(var6.heroPositionY == 0) { //верх
                      var7.addToBody((byte)9);
-                  } else if(var6.field_68 == 49) {
+                  } else if(var6.heroPosiyionX == 49) { //право
                      var7.addToBody((byte)10);
                   } else {
-                     var7.addToBody((byte)11);
+                     var7.addToBody((byte)11); //низ
                   }
 
-                  var7.addToBody(var6.field_68);
-                  var7.addToBody(var6.field_69);
+                  var7.addToBody(var6.heroPosiyionX);
+                  var7.addToBody(var6.heroPositionY);
                   Screen.field_24 = true;
                   SocketListener.self.sendCommand(var7);
                } catch (Exception var4) {
@@ -1245,12 +1245,12 @@ public final class StrategicScreen extends Screen {
 
    // $FF: renamed from: a () short
    private synchronized short method_104() {
-      return (short)(this.field_68 * 50 + 25);
+      return (short)(this.heroPosiyionX * 50 + 25);
    }
 
    // $FF: renamed from: b () short
    private synchronized short method_105() {
-      return (short)(this.field_69 * 50 + 25);
+      return (short)(this.heroPositionY * 50 + 25);
    }
 
    // $FF: renamed from: a (short, byte[][], byte) short
@@ -1296,21 +1296,21 @@ public final class StrategicScreen extends Screen {
          }
 
          if(!Hero.self.method_888()) {
-            if(Math.abs(Hero.self.getPositionX() - this.field_68) > method_112()) {
+            if(Math.abs(Hero.self.getPositionX() - this.heroPosiyionX) > method_112()) {
                this.method_43((byte)10);
-            } else if(Math.abs(Hero.self.getPositionY() - this.field_69) > method_113()) {
+            } else if(Math.abs(Hero.self.getPositionY() - this.heroPositionY) > method_113()) {
                this.method_43((byte)10);
             } else {
                byte var1;
-               if(!GlobalStorage.method_709(GlobalStorage.method_702((short)this.field_68, (short)this.field_69))) {
+               if(!GlobalStorage.method_709(GlobalStorage.method_702((short)this.heroPosiyionX, (short)this.heroPositionY))) {
                   var1 = 10;
-               } else if(this.field_77 != null && this.field_77[this.method_108((short)this.field_68)][this.method_109((short)this.field_69)] == 127) {
+               } else if(this.field_77 != null && this.field_77[this.method_108((short)this.heroPosiyionX)][this.method_109((short)this.heroPositionY)] == 127) {
                   var1 = 10;
                } else {
                   var1 = 9;
                }
 
-               MapObject mapObject = GlobalStorage.method_684(this.field_68, this.field_69, true);
+               MapObject mapObject = GlobalStorage.method_684(this.heroPosiyionX, this.heroPositionY, true);
                if(this.field_78 != null && mapObject != null) {
                   super.popupMenu.method_622(mapObject.getActions(), false);
                   switch(mapObject.getType()) {
@@ -1332,7 +1332,7 @@ public final class StrategicScreen extends Screen {
                      this.field_80 = GlobalStorage.method_685(mapObject);
                   }
                } else if(var1 == 9) {
-                  if(Hero.self.getPositionX() == this.field_68 && Hero.self.getPositionY() == this.field_69) {
+                  if(Hero.self.getPositionX() == this.heroPosiyionX && Hero.self.getPositionY() == this.heroPositionY) {
                      super.popupMenu.method_600((byte)85, false);
                      super.popupMenu.method_600((byte)87, false);
                      super.popupMenu.method_600((byte)88, false);
@@ -1345,7 +1345,7 @@ public final class StrategicScreen extends Screen {
                      }
 
                      var1 = -3;
-                  } else if(GlobalStorage.method_722(GlobalStorage.method_702((short)this.field_68, (short)this.field_69))) {
+                  } else if(GlobalStorage.method_722(GlobalStorage.method_702((short)this.heroPosiyionX, (short)this.heroPositionY))) {
                      var1 = -2;
                      super.popupMenu.method_600((byte)8, false);
                   } else {
@@ -1622,8 +1622,8 @@ public final class StrategicScreen extends Screen {
                   for(short var3 = 0; var3 < GlobalStorage.method_681(); ++var3) {
                      MapObject var4;
                      if((var4 = GlobalStorage.method_682(var3)) != null && var4.getType() == 2) {
-                        byte var5 = (byte)Math.abs(var2.field_68 - var4.method_418());
-                        byte var8 = (byte)Math.abs(var2.field_69 - var4.method_419());
+                        byte var5 = (byte)Math.abs(var2.heroPosiyionX - var4.method_418());
+                        byte var8 = (byte)Math.abs(var2.heroPositionY - var4.method_419());
                         if(var5 >= 0 && var8 >= 0 && var5 <= field_59 && var8 <= field_59) {
                            var10000 = true;
                            break label45;
@@ -1663,8 +1663,8 @@ public final class StrategicScreen extends Screen {
       Screen.field_24 = true;
       this.method_43((byte)-1);
       this.field_82 = var1;
-      short var3 = (short)this.field_68;
-      short var2 = (short)this.field_69;
+      short var3 = (short)this.heroPosiyionX;
+      short var2 = (short)this.heroPositionY;
       if((var3 != Hero.self.getPositionX() || var2 != Hero.self.getPositionY()) && this.field_78 != null) {
          this.field_77 = null;
          Hero.self.method_887(true);
@@ -1728,8 +1728,8 @@ public final class StrategicScreen extends Screen {
       Screen.field_34 = var1;
       Screen.field_35 = var2;
       if(Hero.self != null && !Hero.self.method_888()) {
-         this.field_68 = (byte)((field_60 + var1) / 50);
-         this.field_69 = (byte)((field_61 + var2) / 50);
+         this.heroPosiyionX = (byte)((field_60 + var1) / 50);
+         this.heroPositionY = (byte)((field_61 + var2) / 50);
          this.method_81();
          this.method_51();
          return true;

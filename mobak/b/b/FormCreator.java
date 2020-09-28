@@ -101,8 +101,8 @@ public final class FormCreator implements CommandListener, ItemStateListener {
    }
 
    // $FF: renamed from: a (java.lang.String, java.lang.String, int, int) void
-   public final void createLabel(String var1, String var2, int var3, int var4) {
-      TextField var5 = new TextField(var1, var2, var3, var4);
+   public final void createLabel(String label, String text, int maxSize, int var4) {
+      TextField var5 = new TextField(label, text, maxSize, var4);
       this.field_378.addElement(var5);
       this.field_372.append(var5);
       this.field_372.setCommandListener(this);
