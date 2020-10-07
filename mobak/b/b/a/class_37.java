@@ -15,7 +15,7 @@ import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.y
 public final class class_37 extends MenuScreen {
@@ -903,8 +903,8 @@ public final class class_37 extends MenuScreen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      switch(var1.method_652()) {
+   public final boolean method_38(Button button) {
+      switch(button.method_652()) {
       case 48:
          class_26 var12 = new class_26(this);
          class_26 var6 = var12;
@@ -949,7 +949,7 @@ public final class class_37 extends MenuScreen {
       case 96:
       case 97:
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       case 55:
          boolean var11;
          if(this.method_232()) {

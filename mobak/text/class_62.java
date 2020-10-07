@@ -1,4 +1,4 @@
-package mobak.c;
+package mobak.text;
 
 import java.io.InputStream;
 import javax.microedition.lcdui.Graphics;

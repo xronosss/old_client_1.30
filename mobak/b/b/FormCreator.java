@@ -18,9 +18,9 @@ import javax.microedition.lcdui.TextField;
 import mobak.Main2;
 import mobak.a.SocketListener;
 import mobak.a.a.OutputGameMessage;
-import mobak.c.class_1;
-import mobak.c.MessagesContainer;
-import mobak.c.class_64;
+import mobak.text.class_1;
+import mobak.text.MessagesContainer;
+import mobak.text.class_64;
 
 // $FF: renamed from: mobak.b.b.g
 public final class FormCreator implements CommandListener, ItemStateListener {

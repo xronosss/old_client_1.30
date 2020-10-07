@@ -4,8 +4,8 @@ import mobak.Main2;
 import mobak.UserData;
 import mobak.a.SocketListener;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.class_1;
-import mobak.c.MessagesContainer;
+import mobak.text.class_1;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.a.a.j
 final class class_86 implements class_1 {

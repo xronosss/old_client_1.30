@@ -1,4 +1,4 @@
-package mobak.c;
+package mobak.text;
 
 import javax.microedition.rms.InvalidRecordIDException;
 import javax.microedition.rms.RecordComparator;

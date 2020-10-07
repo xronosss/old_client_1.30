@@ -8,7 +8,7 @@ import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
 import mobak.b.b.a.MenuScreen;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.a.e
 public final class Item extends Thing {

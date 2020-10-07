@@ -1,6 +1,6 @@
 package mobak.b.b;
 
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.n
 final class class_45 implements Runnable {

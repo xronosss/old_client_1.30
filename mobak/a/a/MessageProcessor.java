@@ -33,10 +33,10 @@ import mobak.b.b.a.ViewHelp;
 import mobak.b.b.a.class_43;
 import mobak.b.b.a.PopupMenu;
 import mobak.b.b.a.Button;
-import mobak.c.class_1;
-import mobak.c.MessagesContainer;
-import mobak.c.class_64;
-import mobak.c.PhraseCollection;
+import mobak.text.class_1;
+import mobak.text.MessagesContainer;
+import mobak.text.class_64;
+import mobak.text.PhraseCollection;
 
 // $FF: renamed from: mobak.a.a.b
 public final class MessageProcessor {
@@ -664,9 +664,9 @@ public final class MessageProcessor {
          mainMenuScreen.method_156(var3);
          mainMenuScreen.method_161((byte)length, true);
          mainMenuScreen.setRace(Hero.getRaceId(raceId));
-         byte var7 = PacketManager.readByte();
+         byte count = PacketManager.readByte();
 
-         for(int i = 0; i < var7; ++i) {
+         for(int i = 0; i < count; ++i) {
             boolean var9 = PacketManager.readByte() != 0;
             String var11 = PacketManager.readString();
             short var5 = PacketManager.readShort();
@@ -688,22 +688,22 @@ public final class MessageProcessor {
       try {
          MainMenuScreen mainMenuScreen = new MainMenuScreen((short)-102);
          mainMenuScreen.setCurrentMenuName(MessagesContainer.getMessage(200));
-         short var1;
-         if((var1 = PacketManager.readShort()) > 0) {
-            String[][] var2;
-            (var2 = new String[2][var1 + 1])[0] = new String[]{MessagesContainer.getMessage(33), MessagesContainer.getMessage(32)};
-            short[] var3 = new short[var1];
-            long[] var4 = new long[var1];
+         short maps = PacketManager.readShort();
+         if(maps > 0) {
+            String[][] mapsNames = new String[2][maps + 1];
+            mapsNames[0] = new String[]{MessagesContainer.getMessage(33), MessagesContainer.getMessage(32)};
+            short[] var3 = new short[maps];
+            long[] var4 = new long[maps];
 
-            for(byte var5 = 0; var5 < var1 && !PacketManager.packetDataIsEmpty(); ++var5) {
-               var3[var5] = PacketManager.readShort();
-               var2[1][var5] = PacketManager.readString();
-               var4[var5] = PacketManager.readLong();
+            for(byte i = 0; i < maps && !PacketManager.packetDataIsEmpty(); ++i) {
+               var3[i] = PacketManager.readShort();
+               mapsNames[1][i] = PacketManager.readString();
+               var4[i] = PacketManager.readLong();
             }
 
-            var2[1][var1] = MessagesContainer.getMessage(34);
+            mapsNames[1][maps] = MessagesContainer.getMessage(34);
             mainMenuScreen.method_156(var3);
-            mainMenuScreen.method_158(var2);
+            mainMenuScreen.method_158(mapsNames);
             mainMenuScreen.method_159(var4);
          } else {
             mainMenuScreen.method_158(new String[][]{{MessagesContainer.getMessage(32)}});
@@ -1377,9 +1377,9 @@ public final class MessageProcessor {
          MenuScreen var1 = ScreenDrawer.self.method_342();
          ScreenDrawer.self.method_352(false);
          if(var0 == 1) {
-            ScreenDrawer.method_330(MessagesContainer.getMessage(29), MessagesContainer.getMessage(44));
+            ScreenDrawer.method_330(MessagesContainer.getMessage(29), MessagesContainer.getMessage(44)); //обмен отменен
          } else {
-            ScreenDrawer.method_330(MessagesContainer.getMessage(83), MessagesContainer.getMessage(45));
+            ScreenDrawer.method_330(MessagesContainer.getMessage(83), MessagesContainer.getMessage(45)); //обмен завершен
          }
 
          if(var1 == null) {
@@ -1514,30 +1514,27 @@ public final class MessageProcessor {
    private static void method_1016(boolean var0) throws Exception {
       int var1 = PacketManager.readInt();
       int var2 = PacketManager.readInt();
-      class_34 var10000;
       class_34 var6;
       if(!var0) {
-         var10000 = new class_34(var1);
-         var6 = var10000;
+         var6 = new class_34(var1);
       } else {
-         var10000 = new class_34(0, var1);
-         var6 = var10000;
+         var6 = new class_34(0, var1);
       }
 
       ScreenDrawer.self.method_340(var6, var2 == 1);
-      byte var7 = PacketManager.readByte();
-      var6.method_167(var7);
+      byte charsCount = PacketManager.readByte();
+      var6.method_167(charsCount);
 
-      for(byte var8 = 0; var8 < var7 && !PacketManager.packetDataIsEmpty(); ++var8) {
-         byte var3 = PacketManager.readByte();
-         int[][] var4 = new int[PacketManager.readByte()][2];
+      for(byte i = 0; i < charsCount && !PacketManager.packetDataIsEmpty(); ++i) {
+         byte charId = PacketManager.readByte();
+         int[][] increaseSkill = new int[PacketManager.readByte()][2];
 
-         for(byte var5 = 0; var5 < var4.length && !PacketManager.packetDataIsEmpty(); ++var5) {
-            var4[var5][0] = PacketManager.readInt();
-            var4[var5][1] = PacketManager.readInt();
+         for(byte b = 0; b < increaseSkill.length && !PacketManager.packetDataIsEmpty(); ++b) {
+            increaseSkill[b][0] = PacketManager.readInt();
+            increaseSkill[b][1] = PacketManager.readInt();
          }
 
-         var6.method_168(var8, var3, var4);
+         var6.method_168(i, charId, increaseSkill);
       }
 
    }
@@ -1719,10 +1716,9 @@ public final class MessageProcessor {
       String var1 = MessagesContainer.getMessage(299);
       String var2 = MessagesContainer.getMessage(300);
       class_36 var10000 = new class_36(var1, var2, var0);
-      class_36 var3 = var10000;
       PopupMenu var10001 = new PopupMenu((byte[])null, new byte[]{(byte)55, (byte)103}, (byte[][])null);
       var10000.popupMenu = var10001;
-      ScreenDrawer.self.method_340(var3, true);
+      ScreenDrawer.self.method_340(var10000, true);
       return true;
    }
 
@@ -1932,11 +1928,11 @@ public final class MessageProcessor {
    private static Button method_1034() throws Exception {
       Button var10000 = new Button(PacketManager.readInt());
       short var2 = PacketManager.readShort();
-      var10000.field_544 = var2;
+      var10000.packetType = var2;
       int var1 = var10000.field_543;
       if((var10000.field_543 >> 24 & 32) == 32) {
          var2 = PacketManager.readShort();
-         var10000.field_545 = var2;
+         var10000.nextPacketType = var2;
       }
 
       if(var10000.method_651()) {
@@ -2207,19 +2203,19 @@ public final class MessageProcessor {
 
    // $FF: renamed from: ab () boolean
    private static final boolean method_1048() {
-      Button var10000 = new Button((byte)30);
-      short var2 = packetTypes[86];
-      var10000.field_544 = var2;
-      var10000.method_656((short)261);
-      var10000.method_655(new String[]{MessagesContainer.getMessage(262, new String[]{String.valueOf(GlobalStorage.field_563)})});
+      Button button = new Button((byte)30);
+      short packetType = packetTypes[86];
+      button.packetType = packetType;
+      button.method_656((short)261);
+      button.method_655(new String[]{MessagesContainer.getMessage(262, new String[]{String.valueOf(GlobalStorage.field_563)})});
       short[] var3 = new short[]{(short)3};
-      var10000.field_548 = var3;
+      button.field_548 = var3;
       int[] var4 = new int[]{2};
-      var10000.field_549 = var4;
-      var10000.method_654(MessagesContainer.getMessage(263));
-      var2 = packetTypes[86];
-      var10000.field_545 = var2;
-      ScreenDrawer.self.GetScreen().method_38(var10000);
+      button.field_549 = var4;
+      button.method_654(MessagesContainer.getMessage(263));
+      packetType = packetTypes[86];
+      button.nextPacketType = packetType;
+      ScreenDrawer.self.GetScreen().method_38(button);
       return true;
    }
 
@@ -2239,35 +2235,35 @@ public final class MessageProcessor {
 
    // $FF: renamed from: ae () boolean
    private static final boolean method_1051() throws Exception {
-      Characteristic[] var0 = null;
+      Characteristic[] characteristics = null;
       short var1;
-      Characteristic var10002;
+      Characteristic characteristic;
       if((var1 = PacketManager.readShort()) > 0) {
-         var0 = new Characteristic[var1];
+         characteristics = new Characteristic[var1];
 
-         for(short var2 = 0; var2 < var1; ++var2) {
-            var10002 = new Characteristic();
-            var0[var2] = var10002;
-            var0[var2].index = PacketManager.readInt();
-            var0[var2].name = MessagesContainer.characteristicsNames.getPhrase(var0[var2].index);
-            var0[var2].value = (int) PacketManager.readPacket(PacketManager.readByte());
+         for(short i = 0; i < var1; ++i) {
+            characteristic = new Characteristic();
+            characteristics[i] = characteristic;
+            characteristics[i].index = PacketManager.readInt();
+            characteristics[i].name = MessagesContainer.characteristicsNames.getPhrase(characteristics[i].index);
+            characteristics[i].value = (int) PacketManager.readPacket(PacketManager.readByte());
          }
       }
 
-      Characteristic[] var4 = null;
+      Characteristic[] skills = null;
       if((var1 = PacketManager.readShort()) > 0) {
-         var4 = new Characteristic[var1];
+         skills = new Characteristic[var1];
 
-         for(short var3 = 0; var3 < var1; ++var3) {
-            var10002 = new Characteristic();
-            var4[var3] = var10002;
-            var4[var3].index = PacketManager.readInt();
-            var4[var3].name = MessagesContainer.characteristicsNames.getPhrase(var4[var3].index);
-            var4[var3].value = (int) PacketManager.readPacket(PacketManager.readByte());
+         for(short i = 0; i < var1; ++i) {
+            characteristic = new Characteristic();
+            skills[i] = characteristic;
+            skills[i].index = PacketManager.readInt();
+            skills[i].name = MessagesContainer.characteristicsNames.getPhrase(skills[i].index);
+            skills[i].value = (int) PacketManager.readPacket(PacketManager.readByte());
          }
       }
 
-      Hero.self.method_892(var0, var4);
+      Hero.self.setCharsAndSkills(characteristics, skills);
       return true;
    }
 

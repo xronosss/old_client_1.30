@@ -6,8 +6,8 @@ import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
 import mobak.b.b.a.MenuScreen;
-import mobak.c.class_62;
-import mobak.c.RMSManager;
+import mobak.text.class_62;
+import mobak.text.RMSManager;
 
 // $FF: renamed from: mobak.b.a.a
 public abstract class Thing {

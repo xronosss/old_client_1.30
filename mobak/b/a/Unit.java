@@ -8,8 +8,8 @@ import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
 import mobak.b.b.a.MenuScreen;
-import mobak.c.MessagesContainer;
-import mobak.c.RMSManager;
+import mobak.text.MessagesContainer;
+import mobak.text.RMSManager;
 
 // $FF: renamed from: mobak.b.a.f
 public final class Unit extends Thing {

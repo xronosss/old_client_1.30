@@ -14,9 +14,9 @@ import mobak.b.b.a.class_35;
 import mobak.b.b.a.ViewHelp;
 import mobak.b.b.a.PopupMenu;
 import mobak.b.b.a.Button;
-import mobak.c.class_1;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
+import mobak.text.class_1;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.j
 public abstract class Screen implements class_1 {
@@ -207,9 +207,9 @@ public abstract class Screen implements class_1 {
       boolean var2 = this.method_38(var1);
       if(var1 != null) {
          int var3 = var1.field_543;
-         if((byte)var1.field_543 != 30 && var1.field_544 != 0) {
+         if((byte)var1.field_543 != 30 && var1.packetType != 0) {
             SocketListener var10000 = SocketListener.self;
-            OutputGameMessage var10001 = new OutputGameMessage(var1.field_544);
+            OutputGameMessage var10001 = new OutputGameMessage(var1.packetType);
             var10000.sendCommand(var10001);
          }
       }
@@ -218,14 +218,14 @@ public abstract class Screen implements class_1 {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public boolean method_38(Button var1) {
-      if(var1 != null) {
+   public boolean method_38(Button button) {
+      if(button != null) {
          OutputGameMessage gameMessage;
-         switch((byte)var1.field_543) {
+         switch((byte)button.field_543) {
          case 30:
-            if(var1 != null) {
+            if(button != null) {
                this.method_68();
-               this.field_44 = var1;
+               this.field_44 = button;
                boolean var7 = false;
                Button var3 = this.field_44;
                if(this.field_44.field_546 != null) {
@@ -284,7 +284,7 @@ public abstract class Screen implements class_1 {
             SocketListener.self.sendCommand(gameMessage);
             return true;
          default:
-            short var5 = PopupMenu.method_636((byte)var1.field_543);
+            short var5 = PopupMenu.method_636((byte)button.field_543);
             gameMessage = new OutputGameMessage(var5);
             SocketListener.self.sendCommand(gameMessage);
          }
@@ -753,9 +753,9 @@ public abstract class Screen implements class_1 {
       if(this.field_44 != null) {
          try {
             Button var2 = this.field_44;
-            short var1 = this.field_44.field_544;
+            short var1 = this.field_44.packetType;
             var2 = this.field_44;
-            short var10 = this.field_44.field_545;
+            short var10 = this.field_44.nextPacketType;
             var10000 = new OutputGameMessage(var1);
             var7 = var10000;
             var10000.setNextCommandType(var10);

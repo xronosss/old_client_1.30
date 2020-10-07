@@ -358,7 +358,7 @@ public final class Hero {
    }
 
    // $FF: renamed from: a (mobak.b.a.d[], mobak.b.a.d[]) void
-   public final void method_892(Characteristic[] var1, Characteristic[] var2) {
+   public final void setCharsAndSkills(Characteristic[] var1, Characteristic[] var2) {
       this.field_693 = var1;
       this.field_695 = var2;
    }

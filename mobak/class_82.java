@@ -5,7 +5,7 @@ import javax.microedition.io.Connector;
 import javax.wireless.messaging.MessageConnection;
 import javax.wireless.messaging.TextMessage;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.j
 public final class class_82 implements Runnable {

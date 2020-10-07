@@ -15,7 +15,7 @@ import mobak.b.a.Hero;
 import mobak.b.b.a.MenuScreen;
 import mobak.b.b.a.PopupMenu;
 import mobak.b.b.a.Button;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a
 public final class BattleScreen extends Screen {
@@ -206,7 +206,7 @@ public final class BattleScreen extends Screen {
       this.field_282.method_654(MessagesContainer.getMessage(265, new String[]{String.valueOf(GlobalStorage.ArmyByGemsCost)}));
       short var8 = MessageProcessor.packetTypes[87];
       Button var6 = this.field_282;
-      this.field_282.field_544 = var8;
+      this.field_282.packetType = var8;
       this.field_282.method_648(true);
       super.popupMenu.method_594(false, this.field_282);
       this.method_293();
@@ -480,12 +480,12 @@ public final class BattleScreen extends Screen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      if(var1 == null) {
+   public final boolean method_38(Button button) {
+      if(button == null) {
          return false;
       } else {
-         int var2 = var1.field_543;
-         switch((byte)var1.field_543) {
+         int var2 = button.field_543;
+         switch((byte) button.field_543) {
          case 1:
             try {
                if(this.field_273 != this.field_274 || this.field_270) {
@@ -514,8 +514,8 @@ public final class BattleScreen extends Screen {
                   this.field_283 = null;
                }
 
-               var2 = var1.field_543;
-               return this.method_284((byte)var1.field_543 == 58);
+               var2 = button.field_543;
+               return this.method_284((byte) button.field_543 == 58);
             }
 
             return true;
@@ -606,7 +606,7 @@ public final class BattleScreen extends Screen {
             break;
          default:
             try {
-               return super.method_38(var1);
+               return super.method_38(button);
             } catch (Exception var6) {
                SocketListener.logMessage(var6.getMessage());
             }

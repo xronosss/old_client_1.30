@@ -7,7 +7,7 @@ import mobak.a.a.OutputGameMessage;
 import mobak.a.a.MessageProcessor;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.ab
 public final class class_43 extends View {
@@ -16,7 +16,7 @@ public final class class_43 extends View {
    public class_43(String var1, int var2) {
       super((short)-10);
       this.method_57((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - PopupMenu.method_583() - 40), true);
-      super.field_116 = MessagesContainer.getMessage(181);
+      super.name = MessagesContainer.getMessage(181);
       this.helpViewInit();
       super.field_53.method_490(var1, Screen.field_26, false, -1);
       PopupMenu var10001 = new PopupMenu((byte[])null, new byte[]{(byte)51, (byte)55}, (byte[][])null);
@@ -37,7 +37,7 @@ public final class class_43 extends View {
          Button var10000 = new Button((byte)30);
          Button var4 = var10000;
          short var3 = MessageProcessor.packetTypes[86];
-         var10000.field_544 = var3;
+         var10000.packetType = var3;
          var4.method_656((short)261);
          var4.method_655(new String[]{MessagesContainer.getMessage(262, new String[]{String.valueOf(GlobalStorage.field_563)})});
          short[] var5 = new short[]{(short)3};
@@ -46,7 +46,7 @@ public final class class_43 extends View {
          var4.field_549 = var6;
          var4.method_654(MessagesContainer.getMessage(263));
          var3 = MessageProcessor.packetTypes[86];
-         var4.field_545 = var3;
+         var4.nextPacketType = var3;
          super.popupMenu.method_594(false, var4);
       }
 
@@ -103,15 +103,15 @@ public final class class_43 extends View {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      switch(var1.method_652()) {
+   public final boolean method_38(Button button) {
+      switch(button.method_652()) {
       case 96:
          ScreenDrawer var10000 = ScreenDrawer.self;
          class_41 var10001 = new class_41();
          var10000.method_340(var10001, true);
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 }

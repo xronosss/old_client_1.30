@@ -2,7 +2,7 @@ package mobak.b.b.a;
 
 import java.util.Vector;
 import mobak.b.a.Thing;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.b.b.a.aa
 final class class_26 extends NotifyLabel {

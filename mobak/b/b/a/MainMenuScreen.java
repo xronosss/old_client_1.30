@@ -12,9 +12,9 @@ import mobak.b.b.Screen;
 import mobak.b.b.StrategicScreen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.MapObject;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
-import mobak.c.RMSManager;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
+import mobak.text.RMSManager;
 
 // $FF: renamed from: mobak.b.b.a.f
 public final class MainMenuScreen extends MenuScreen {
@@ -408,9 +408,9 @@ public final class MainMenuScreen extends MenuScreen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
-      switch((byte)var1.field_543) {
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
+      switch((byte) button.field_543) {
       case 55:
          OutputGameMessage var10000;
          OutputGameMessage var4;
@@ -449,7 +449,7 @@ public final class MainMenuScreen extends MenuScreen {
             return true;
          }
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 
@@ -644,7 +644,7 @@ public final class MainMenuScreen extends MenuScreen {
          break;
       case 2:
          var1.append("screen: City\n");
-         var1.append("name: ").append(super.field_116).append("\n");
+         var1.append("name: ").append(super.name).append("\n");
          break;
       case 3:
          var1.append("screen: Teleport\n");

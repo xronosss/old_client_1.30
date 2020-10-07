@@ -1,4 +1,4 @@
-package mobak.c;
+package mobak.text;
 
 
 // $FF: renamed from: mobak.c.b

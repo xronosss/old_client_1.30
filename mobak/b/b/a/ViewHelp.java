@@ -14,7 +14,7 @@ import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.ac
 public final class ViewHelp extends View {
@@ -140,7 +140,7 @@ public final class ViewHelp extends View {
             this.method_57((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - PopupMenu.method_583() - 16 - 10), true);
             var10001 = new PopupMenu((byte[])null, new byte[]{(byte)55}, (byte[][])null);
             super.popupMenu = var10001;
-            super.field_116 = MessagesContainer.getMessage(298);
+            super.name = MessagesContainer.getMessage(298);
          case -5:
             this.method_57((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 75), (short)(ScreenDrawer.self.getHeight() - this.method_136() - 16 - PopupMenu.method_583() - 10), true);
 
@@ -150,17 +150,17 @@ public final class ViewHelp extends View {
                Button var10000 = new Button((byte)30);
                Button var6 = var10000;
                short var3 = MessageProcessor.packetTypes[90];
-               var10000.field_544 = var3;
+               var10000.packetType = var3;
                var6.method_656((short)269);
                var3 = MessageProcessor.packetTypes[90];
-               var6.field_545 = var3;
+               var6.nextPacketType = var3;
                super.popupMenu.method_594(false, var6);
             } catch (Exception var4) {
                SocketListener.logMessage("popupMenu create");
             }
 
             super.field_225 = this.method_144(true);
-            super.field_116 = MessagesContainer.getMessage(93);
+            super.name = MessagesContainer.getMessage(93);
             super.field_229 = 0;
             super.field_228 = 0;
             this.method_51();
@@ -348,8 +348,8 @@ public final class ViewHelp extends View {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      switch(var1.method_652()) {
+   public final boolean method_38(Button button) {
+      switch(button.method_652()) {
       case 48:
          method_275((byte)3, 1);
          method_275((byte)4, 1);
@@ -407,7 +407,7 @@ public final class ViewHelp extends View {
             return false;
          }
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

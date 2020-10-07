@@ -9,8 +9,8 @@ import mobak.GlobalStorage;
 import mobak.a.SocketListener;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.u
 public final class PopupMenu {

@@ -5,7 +5,7 @@ import javax.microedition.lcdui.Image;
 import mobak.class_67;
 import mobak.GlobalStorage;
 import mobak.a.SocketListener;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.i
 public class MapObject {

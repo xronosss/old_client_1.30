@@ -1,7 +1,7 @@
 package mobak.b.b.a;
 
 import mobak.a.SocketListener;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.b.b.a.b
 final class class_19 extends NotifyLabel {

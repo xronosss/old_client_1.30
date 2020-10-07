@@ -8,7 +8,7 @@ import mobak.a.a.PacketManager;
 import mobak.a.a.MessageProcessor;
 import mobak.b.a.Hero;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.a.b
 final class class_57 implements Runnable {

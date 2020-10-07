@@ -1,7 +1,7 @@
 package mobak.b.b.a;
 
 import mobak.b.b.ScreenDrawer;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.b.b.a.n
 final class class_23 extends NotifyLabel {
@@ -18,7 +18,7 @@ final class class_23 extends NotifyLabel {
 
    // $FF: renamed from: b () boolean
    public final boolean LeftClick() {
-      class_34.method_171(this.field_19);
+      class_34.sendSelection(this.field_19);
       ScreenDrawer.self.method_346();
       class_34.method_172(this.field_19, 16773632);
       return true;

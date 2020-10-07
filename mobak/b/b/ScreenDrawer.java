@@ -19,8 +19,8 @@ import mobak.b.a.Hero;
 import mobak.b.b.a.MenuScreen;
 import mobak.b.b.a.MainMenuScreen;
 import mobak.b.b.a.PopupMenu;
-import mobak.c.NotifyLabel;
-import mobak.c.MessagesContainer;
+import mobak.text.NotifyLabel;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.m
 public final class ScreenDrawer extends GameCanvas implements Runnable {

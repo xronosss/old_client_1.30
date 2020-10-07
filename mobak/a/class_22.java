@@ -1,7 +1,7 @@
 package mobak.a;
 
 import mobak.Main2;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.a.c
 final class class_22 extends NotifyLabel {

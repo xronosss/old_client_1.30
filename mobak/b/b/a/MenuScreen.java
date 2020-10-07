@@ -8,9 +8,9 @@ import mobak.b.a.Thing;
 import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.class_1;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
+import mobak.text.class_1;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.t
 public abstract class MenuScreen extends Screen implements class_1 {
@@ -78,7 +78,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
    // $FF: renamed from: D short
    private static short field_115;
    // $FF: renamed from: b java.lang.String
-   protected String field_116;
+   protected String name;
    // $FF: renamed from: c java.lang.String
    protected String field_117;
    // $FF: renamed from: f int
@@ -97,9 +97,9 @@ public abstract class MenuScreen extends Screen implements class_1 {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public boolean method_38(Button var1) {
-      int var2 = var1.field_543;
-      switch((byte)var1.field_543) {
+   public boolean method_38(Button button) {
+      int var2 = button.field_543;
+      switch((byte) button.field_543) {
       case 55:
          if(ScreenDrawer.self.method_351() && !SocketListener.self.method_533()) {
             ScreenDrawer.self.method_352(false);
@@ -109,7 +109,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
          ScreenDrawer.self.GetScreen().helpViewInit();
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 
@@ -231,7 +231,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
 
       MainMenuScreen var10000 = new MainMenuScreen((short)-103);
       MainMenuScreen var0 = var10000;
-      var10000.field_116 = null;
+      var10000.name = null;
       var0.field_128 = new String[][]{MainMenuScreen.method_151()};
       var0.field_129 = null;
       var0.field_131 = 0;
@@ -258,7 +258,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
    public static final MainMenuScreen method_132() {
       MainMenuScreen var10000 = new MainMenuScreen((short)-105);
       MainMenuScreen var0 = var10000;
-      var10000.field_116 = MessagesContainer.getMessage(38);
+      var10000.name = MessagesContainer.getMessage(38);
       PopupMenu var10001 = new PopupMenu((byte[])null, new byte[]{(byte)55}, (byte[][])null);
       var0.popupMenu = var10001;
       var0.mainMenuType = 5;
@@ -341,8 +341,8 @@ public abstract class MenuScreen extends Screen implements class_1 {
             Screen.field_29.method_564(var1, this.method_58(), var2, 14, 17);
          }
 
-         if(this.field_116 != null) {
-            Screen.field_26.method_564(var1, this.field_116, var2, var3, 17);
+         if(this.name != null) {
+            Screen.field_26.method_564(var1, this.name, var2, var3, 17);
          }
 
          Graphics var21 = var1;
@@ -549,7 +549,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
 
    // $FF: renamed from: b (java.lang.String) void
    public final void setCurrentMenuName(String var1) {
-      this.field_116 = var1;
+      this.name = var1;
    }
 
    // $FF: renamed from: c (java.lang.String) void

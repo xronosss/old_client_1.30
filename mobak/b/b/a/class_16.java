@@ -3,7 +3,7 @@ package mobak.b.b.a;
 import mobak.a.SocketListener;
 import mobak.a.a.OutputGameMessage;
 import mobak.a.a.MessageProcessor;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.b.b.a.e
 final class class_16 extends NotifyLabel {

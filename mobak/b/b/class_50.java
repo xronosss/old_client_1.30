@@ -1,7 +1,7 @@
 package mobak.b.b;
 
 import javax.microedition.lcdui.Graphics;
-import mobak.c.class_62;
+import mobak.text.class_62;
 
 // $FF: renamed from: mobak.b.b.r
 public abstract class class_50 {

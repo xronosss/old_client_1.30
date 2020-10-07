@@ -16,10 +16,10 @@ import mobak.b.b.StrategicScreen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.FormCreator;
 import mobak.b.b.a.PopupMenu;
-import mobak.c.class_1;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
-import mobak.c.RMSManager;
+import mobak.text.class_1;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
+import mobak.text.RMSManager;
 
 public class Main2 extends MIDlet implements class_1 {
 

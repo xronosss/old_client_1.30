@@ -4,7 +4,7 @@ import mobak.GlobalStorage;
 import mobak.a.SocketListener;
 import mobak.a.a.OutputGameMessage;
 import mobak.a.a.MessageProcessor;
-import mobak.c.NotifyLabel;
+import mobak.text.NotifyLabel;
 
 // $FF: renamed from: mobak.b.b.a.h
 final class class_15 extends NotifyLabel {

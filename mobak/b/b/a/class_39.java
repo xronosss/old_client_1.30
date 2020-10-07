@@ -9,7 +9,7 @@ import mobak.b.a.Item;
 import mobak.b.a.Characteristic;
 import mobak.b.a.Hero;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.c
 public final class class_39 extends View {
@@ -33,19 +33,19 @@ public final class class_39 extends View {
       Item[] var3;
       switch(var1) {
       case -12:
-         super.field_116 = MessagesContainer.getMessage(95);
+         super.name = MessagesContainer.getMessage(95);
          super.field_227[0] = (short)(super.field_227[0] | 16);
          var10001 = new PopupMenu(new byte[]{(byte)81}, new byte[]{(byte)52, (byte)55, (byte)71, (byte)95, (byte)49}, new byte[][]{{(byte)70, (byte)68, (byte)67, (byte)90, (byte)69}});
          super.popupMenu = var10001;
          super.popupMenu.method_615((byte)71);
          break;
       case -6:
-         super.field_116 = MessagesContainer.getMessage(95);
+         super.name = MessagesContainer.getMessage(95);
          var10001 = new PopupMenu(new byte[]{(byte)86, (byte)74}, new byte[]{(byte)55}, (byte[][])null);
          super.popupMenu = var10001;
          break;
       case -2:
-         super.field_116 = MessagesContainer.getMessage(95);
+         super.name = MessagesContainer.getMessage(95);
          var10001 = new PopupMenu(new byte[]{(byte)51, (byte)86, (byte)74, (byte)79}, new byte[]{(byte)52, (byte)55, (byte)100, (byte)48, (byte)95, (byte)49}, new byte[][]{{(byte)70, (byte)68, (byte)67, (byte)90, (byte)69}});
          super.popupMenu = var10001;
          super.field_227[0] = (short)(super.field_227[0] | 4096);
@@ -59,7 +59,7 @@ public final class class_39 extends View {
          break;
       case -1:
          Item.method_779();
-         super.field_116 = MessagesContainer.getMessage(71);
+         super.name = MessagesContainer.getMessage(71);
          var10001 = new PopupMenu(new byte[]{(byte)81}, new byte[]{(byte)55}, (byte[][])null);
          super.popupMenu = var10001;
          if((var3 = Hero.self.method_882((byte)1)) == null || var3.length == 0) {
@@ -246,11 +246,11 @@ public final class class_39 extends View {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
       OutputGameMessage var10000;
       OutputGameMessage var6;
-      switch((byte)var1.field_543) {
+      switch((byte) button.field_543) {
       case 48:
          return this.method_264();
       case 66:
@@ -324,7 +324,7 @@ public final class class_39 extends View {
          super.field_228 = 0;
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

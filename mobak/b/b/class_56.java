@@ -1,7 +1,7 @@
 package mobak.b.b;
 
-import mobak.c.NotifyLabel;
-import mobak.c.class_62;
+import mobak.text.NotifyLabel;
+import mobak.text.class_62;
 
 // $FF: renamed from: mobak.b.b.o
 final class class_56 {

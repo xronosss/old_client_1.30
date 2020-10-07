@@ -1,4 +1,4 @@
-package mobak.c;
+package mobak.text;
 
 import java.io.IOException;
 import java.io.InputStream;

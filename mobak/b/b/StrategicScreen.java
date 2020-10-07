@@ -12,7 +12,7 @@ import mobak.b.a.Hero;
 import mobak.b.b.a.MenuScreen;
 import mobak.b.b.a.PopupMenu;
 import mobak.b.b.a.Button;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.p
 public final class StrategicScreen extends Screen {
@@ -227,13 +227,13 @@ public final class StrategicScreen extends Screen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
       OutputGameMessage var10000;
       MapObject var5;
       OutputGameMessage var6;
       OutputGameMessage var7;
-      switch((byte)var1.field_543) {
+      switch((byte) button.field_543) {
       case -2:
          this.method_120((byte)1);
          return true;
@@ -316,7 +316,7 @@ public final class StrategicScreen extends Screen {
          Hero.method_926();
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

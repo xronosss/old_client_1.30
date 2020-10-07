@@ -7,7 +7,7 @@ import mobak.b.b.a.class_51;
 import mobak.b.b.a.class_52;
 import mobak.b.b.a.class_53;
 import mobak.b.b.a.class_54;
-import mobak.c.class_62;
+import mobak.text.class_62;
 
 // $FF: renamed from: mobak.b.b.q
 public final class class_55 extends class_50 {

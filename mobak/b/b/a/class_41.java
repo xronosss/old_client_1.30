@@ -10,7 +10,7 @@ import mobak.b.a.class_76;
 import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.p
 public final class class_41 extends View {
@@ -165,13 +165,13 @@ public final class class_41 extends View {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
       class_76 var3;
-      switch((byte)var1.field_543) {
+      switch((byte) button.field_543) {
       case 58:
-         class_25 var10000 = new class_25(this);
-         class_25 var4 = var10000;
+         IconSelectionNotifyLabel var10000 = new IconSelectionNotifyLabel(this);
+         IconSelectionNotifyLabel var4 = var10000;
          Button var5 = this.field_242;
          ScreenDrawer.method_334("", this.field_242.field_546, "", var4);
          return true;
@@ -198,7 +198,7 @@ public final class class_41 extends View {
             return true;
          }
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

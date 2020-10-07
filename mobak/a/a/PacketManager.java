@@ -1,8 +1,8 @@
 package mobak.a.a;
 
 import mobak.a.SocketListener;
-import mobak.c.MessagesContainer;
-import mobak.c.RMSManager;
+import mobak.text.MessagesContainer;
+import mobak.text.RMSManager;
 
 // $FF: renamed from: mobak.a.a.a
 public final class PacketManager {

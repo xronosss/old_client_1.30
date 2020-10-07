@@ -8,7 +8,7 @@ import mobak.b.a.Thing;
 import mobak.b.a.Unit;
 import mobak.b.a.Hero;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.a
 public final class class_40 extends View {
@@ -30,14 +30,14 @@ public final class class_40 extends View {
       PopupMenu var10001;
       switch(var1) {
       case -4:
-         super.field_116 = MessagesContainer.getMessage(52);
+         super.name = MessagesContainer.getMessage(52);
          var10001 = new PopupMenu((byte[])null, new byte[]{(byte)52, (byte)55, (byte)73, (byte)72, (byte)95}, (byte[][])null);
          super.popupMenu = var10001;
          super.popupMenu.method_615((byte)73);
          super.field_227[0] = (short)(super.field_227[0] | 2048);
          ScreenDrawer.field_293 = ScreenDrawer.self.battleScreen.hero.method_880();
       case -3:
-         super.field_116 = MessagesContainer.getMessage(52);
+         super.name = MessagesContainer.getMessage(52);
          var10001 = new PopupMenu(new byte[]{(byte)79}, new byte[]{(byte)51, (byte)55, (byte)100, (byte)48, (byte)98, (byte)95}, (byte[][])null);
          super.popupMenu = var10001;
          super.field_227[0] = (short)(super.field_227[0] | 4096);
@@ -114,12 +114,12 @@ public final class class_40 extends View {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
       OutputGameMessage var10000;
       Thing var7;
       OutputGameMessage var9;
-      switch((byte)var1.field_543) {
+      switch((byte) button.field_543) {
       case 48:
          class_19 var10 = new class_19(this);
          class_19 var8 = var10;
@@ -198,7 +198,7 @@ public final class class_40 extends View {
          super.field_228 = 0;
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

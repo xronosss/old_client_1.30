@@ -1,6 +1,6 @@
 package mobak.b.b.a;
 
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.v
 public final class Button {
@@ -8,9 +8,9 @@ public final class Button {
    // $FF: renamed from: a int
    public int field_543;
    // $FF: renamed from: a short
-   public short field_544;
+   public short packetType;
    // $FF: renamed from: b short
-   public short field_545;
+   public short nextPacketType;
    // $FF: renamed from: a java.lang.String
    public String field_546;
    // $FF: renamed from: a java.lang.String[]

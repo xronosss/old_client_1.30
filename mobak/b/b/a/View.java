@@ -311,9 +311,9 @@ public abstract class View extends MenuScreen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public boolean method_38(Button var1) {
-      int var2 = var1.field_543;
-      switch((byte)var1.field_543) {
+   public boolean method_38(Button button) {
+      int var2 = button.field_543;
+      switch((byte) button.field_543) {
       case 55:
          return this.method_254();
       case 78:
@@ -337,7 +337,7 @@ public abstract class View extends MenuScreen {
          this.method_54();
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 

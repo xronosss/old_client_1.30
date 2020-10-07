@@ -9,9 +9,9 @@ import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.FormCreator;
 import mobak.b.b.class_55;
-import mobak.c.class_1;
-import mobak.c.class_62;
-import mobak.c.MessagesContainer;
+import mobak.text.class_1;
+import mobak.text.class_62;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.d
 public final class class_35 extends MenuScreen implements class_1 {
@@ -81,7 +81,7 @@ public final class class_35 extends MenuScreen implements class_1 {
       this.field_178 = false;
       super.field_52 = -107;
       this.field_173 = MessagesContainer.getMessage(81);
-      super.field_116 = MessagesContainer.getMessage(154);
+      super.name = MessagesContainer.getMessage(154);
       this.field_164 = null;
       this.field_165 = null;
       this.field_166 = Screen.field_30;
@@ -112,7 +112,7 @@ public final class class_35 extends MenuScreen implements class_1 {
       this.field_180.method_659(true);
       short var2 = MessageProcessor.packetTypes[88];
       Button var1 = this.field_180;
-      this.field_180.field_544 = var2;
+      this.field_180.packetType = var2;
       super.popupMenu.method_594(true, this.field_180);
       var4 = new Button((byte)30);
       this.field_181 = var4;
@@ -121,7 +121,7 @@ public final class class_35 extends MenuScreen implements class_1 {
       this.field_181.method_659(true);
       var2 = MessageProcessor.packetTypes[89];
       var1 = this.field_181;
-      this.field_181.field_544 = var2;
+      this.field_181.packetType = var2;
       super.popupMenu.method_594(true, this.field_181);
    }
 
@@ -141,7 +141,7 @@ public final class class_35 extends MenuScreen implements class_1 {
          this.field_178 = false;
          this.method_186();
          this.field_163 = 2;
-         super.field_116 = this.field_164[this.field_172];
+         super.name = this.field_164[this.field_172];
          if(this.field_165[this.field_172] != -1) {
             this.field_169 = new String[]{MessagesContainer.getMessage(80) + "(" + var1 + ")", MessagesContainer.getMessage(160) + "(" + var2 + ")"};
          } else {
@@ -157,7 +157,7 @@ public final class class_35 extends MenuScreen implements class_1 {
       this.field_170.method_495();
       this.method_191(var1, var2, var4);
       this.field_173 = this.field_164[this.field_172];
-      super.field_116 = MessagesContainer.getMessage(160);
+      super.name = MessagesContainer.getMessage(160);
       this.field_163 = 4;
       super.popupMenu.method_597((short)156, (byte)81);
       if(var5) {
@@ -270,17 +270,17 @@ public final class class_35 extends MenuScreen implements class_1 {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
       OutputGameMessage var10000;
-      switch((byte)var1.field_543) {
+      switch((byte) button.field_543) {
       case 30:
-         if(var1.field_544 == MessageProcessor.packetTypes[89] && var1.method_658()) {
+         if(button.packetType == MessageProcessor.packetTypes[89] && button.method_658()) {
             var2 = this.method_71();
             if(Hero.self.heroId != var2) {
-               var10000 = new OutputGameMessage(var1.field_544);
+               var10000 = new OutputGameMessage(button.packetType);
                OutputGameMessage var6 = var10000;
-               var10000.setNextCommandType(var1.field_545);
+               var10000.setNextCommandType(button.nextPacketType);
                var6.addToBody(var2);
                SocketListener.self.sendCommand(var6);
                return true;
@@ -289,7 +289,7 @@ public final class class_35 extends MenuScreen implements class_1 {
             return false;
          }
 
-         return super.method_38(var1);
+         return super.method_38(button);
       case 55:
          this.method_185();
          return true;
@@ -364,7 +364,7 @@ public final class class_35 extends MenuScreen implements class_1 {
          method_182((byte)0, (byte)0);
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 
@@ -539,7 +539,7 @@ public final class class_35 extends MenuScreen implements class_1 {
          case 2:
             this.field_178 = false;
             this.field_163 = 1;
-            super.field_116 = MessagesContainer.getMessage(154);
+            super.name = MessagesContainer.getMessage(154);
             this.field_173 = MessagesContainer.getMessage(81);
             super.popupMenu.method_619((byte)81);
             this.method_180(-100, false);
@@ -549,7 +549,7 @@ public final class class_35 extends MenuScreen implements class_1 {
             if(!this.field_178) {
                this.method_180(this.field_165[this.field_172], true);
                this.field_173 = MessagesContainer.getMessage(81);
-               super.field_116 = this.field_164[this.field_172];
+               super.name = this.field_164[this.field_172];
                super.popupMenu.method_619((byte)81);
                return;
             }
@@ -617,7 +617,7 @@ public final class class_35 extends MenuScreen implements class_1 {
       super.popupMenu.method_600((byte)98, false);
       if(this.field_163 != 3) {
          this.field_173 = this.field_164[this.field_172];
-         super.field_116 = MessagesContainer.getMessage(80);
+         super.name = MessagesContainer.getMessage(80);
          this.field_163 = 3;
          this.field_170.method_495();
       }

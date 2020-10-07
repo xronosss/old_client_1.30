@@ -9,7 +9,7 @@ import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.b.b.a.l
 public final class class_34 extends MenuScreen {
@@ -62,7 +62,7 @@ public final class class_34 extends MenuScreen {
       this.field_157 = 0;
       this.field_159 = 16773632;
       this.field_153 = var2;
-      this.field_152 = 0;
+      this.field_152 = var1;
       this.field_156 = true;
       this.method_166();
    }
@@ -134,7 +134,7 @@ public final class class_34 extends MenuScreen {
       this.field_158 = false;
       PopupMenu var2 = new PopupMenu(new byte[]{(byte)81}, new byte[]{(byte)55}, (byte[][])null);
       super.popupMenu = var2;
-      super.field_116 = MessagesContainer.getMessage(144);
+      super.name = MessagesContainer.getMessage(144);
       super.popupMenu.method_597((short)148, (byte)55);
    }
 
@@ -151,11 +151,9 @@ public final class class_34 extends MenuScreen {
          class_60[] var10000;
          if(this.field_147[var1] == null) {
             var10000 = this.field_147;
-            class_60 var10002 = new class_60(this);
-            var10000[var1] = var10002;
+            var10000[var1] = new class_60(this);
          }
 
-         var10000 = this.field_147;
          this.field_147[var1].field_481 = var3;
       }
    }
@@ -373,9 +371,9 @@ public final class class_34 extends MenuScreen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.v) boolean
-   public final boolean method_38(Button var1) {
-      int var2 = var1.field_543;
-      switch((byte)var1.field_543) {
+   public final boolean method_38(Button button) {
+      int var2 = button.field_543;
+      switch((byte) button.field_543) {
       case 55:
          label60: {
             if(this.field_152 == 0) {
@@ -427,7 +425,7 @@ public final class class_34 extends MenuScreen {
          this.field_145.method_493(this.field_157).method_469(this.field_159, 2);
          return true;
       default:
-         return super.method_38(var1);
+         return super.method_38(button);
       }
    }
 
@@ -480,23 +478,21 @@ public final class class_34 extends MenuScreen {
    }
 
    // $FF: renamed from: a (mobak.b.b.a.l) void
-   static void method_171(class_34 var0) {
-      var0 = var0;
-      OutputGameMessage var10000 = new OutputGameMessage(MessageProcessor.packetTypes[53], (short)(4 * var0.field_150.length), (short)0);
-      OutputGameMessage var1 = var10000;
+   static void sendSelection(class_34 var0) {
+      OutputGameMessage packet = new OutputGameMessage(MessageProcessor.packetTypes[53], (short)(4 * var0.field_150.length), (short)0);
 
       try {
-         var1.addToBody((byte)var0.field_150.length);
+         packet.addToBody((byte)var0.field_150.length);
 
-         for(byte var2 = 0; var2 < var0.field_150.length; ++var2) {
-            var1.addToBody(var0.field_150[var2][0]);
-            var1.addToBody(var0.field_150[var2][1]);
+         for(byte i = 0; i < var0.field_150.length; ++i) {
+            packet.addToBody(var0.field_150[i][0]);
+            packet.addToBody(var0.field_150[i][1]);
          }
       } catch (Exception var3) {
          SocketListener.logMessage("sendSelection" + var3.toString());
       }
 
-      SocketListener.self.sendCommand(var1);
+      SocketListener.self.sendCommand(packet);
    }
 
    // $FF: renamed from: a (mobak.b.b.a.l, int) int

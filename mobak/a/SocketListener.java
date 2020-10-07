@@ -11,7 +11,7 @@ import mobak.a.a.MessageProcessor;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
-import mobak.c.MessagesContainer;
+import mobak.text.MessagesContainer;
 
 // $FF: renamed from: mobak.a.a
 public final class SocketListener {

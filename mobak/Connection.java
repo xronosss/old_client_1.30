@@ -6,8 +6,8 @@ import mobak.a.a.MessageProcessor;
 import mobak.b.a.Hero;
 import mobak.b.b.Screen;
 import mobak.b.b.ScreenDrawer;
-import mobak.c.MessagesContainer;
-import mobak.c.RMSManager;
+import mobak.text.MessagesContainer;
+import mobak.text.RMSManager;
 
 // $FF: renamed from: mobak.g
 final class Connection implements Runnable {

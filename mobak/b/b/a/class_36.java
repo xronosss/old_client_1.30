@@ -8,7 +8,7 @@ import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_55;
 import mobak.b.b.a.a.class_0;
 import mobak.b.b.a.a.class_59;
-import mobak.c.class_62;
+import mobak.text.class_62;
 
 // $FF: renamed from: mobak.b.b.a.x
 public final class class_36 extends MenuScreen {
@@ -31,7 +31,7 @@ public final class class_36 extends MenuScreen {
       this.field_184 = 0;
       this.field_184 = -108;
       Screen.nameOfMap = var1;
-      super.field_116 = var2;
+      super.name = var2;
       class_55 var10001 = new class_55((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - 22 - PopupMenu.method_583()), false, false, true);
       super.field_53 = var10001;
       this.field_188 = Screen.field_26;
@@ -54,7 +54,7 @@ public final class class_36 extends MenuScreen {
       this.field_184 = 0;
       this.field_184 = -109;
       Screen.nameOfMap = var1;
-      super.field_116 = var2;
+      super.name = var2;
       boolean var5 = false;
 
       int var7;

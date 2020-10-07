@@ -4,7 +4,7 @@ import java.util.Vector;
 import javax.microedition.lcdui.Graphics;
 import mobak.b.b.ScreenDrawer;
 import mobak.b.b.class_50;
-import mobak.c.class_62;
+import mobak.text.class_62;
 
 // $FF: renamed from: mobak.b.b.a.s
 public final class class_53 extends class_50 {
