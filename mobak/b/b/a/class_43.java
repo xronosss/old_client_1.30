@@ -18,7 +18,7 @@ public final class class_43 extends View {
       this.method_57((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - PopupMenu.method_583() - 40), true);
       super.name = MessagesContainer.getMessage(181);
       this.helpViewInit();
-      super.field_53.method_490(var1, Screen.field_26, false, -1);
+      super.field_53.addText(var1, Screen.field_26, false, -1);
       PopupMenu var10001 = new PopupMenu((byte[])null, new byte[]{(byte)51, (byte)55}, (byte[][])null);
       super.popupMenu = var10001;
       if((var2 & 1) == 1) {
@@ -59,8 +59,8 @@ public final class class_43 extends View {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
-      super.method_30(var1);
+   public final void drawScreen(Graphics var1) {
+      super.drawScreen(var1);
       super.field_53.method_484(var1, (byte)0);
       super.popupMenu.method_604(var1);
    }

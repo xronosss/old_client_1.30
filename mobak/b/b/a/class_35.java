@@ -178,8 +178,8 @@ public final class class_35 extends MenuScreen implements class_1 {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
-      super.method_30(var1);
+   public final void drawScreen(Graphics var1) {
+      super.drawScreen(var1);
       synchronized(this) {
          switch(this.field_163) {
          case 1:
@@ -684,11 +684,11 @@ public final class class_35 extends MenuScreen implements class_1 {
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
          synchronized(this) {
-            this.field_170.method_490(var2[var4], Screen.field_26, true, -1);
+            this.field_170.addText(var2[var4], Screen.field_26, true, -1);
             if(var3 != null && var3[var4] > 0 && var3[var4] < 10) {
-               this.field_170.method_490(var1[var4], Screen.field_33, true, -1);
+               this.field_170.addText(var1[var4], Screen.field_33, true, -1);
             } else {
-               this.field_170.method_490(var1[var4], Screen.field_32, true, -1);
+               this.field_170.addText(var1[var4], Screen.field_32, true, -1);
             }
          }
       }

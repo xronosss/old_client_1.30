@@ -218,28 +218,28 @@ public final class Item extends Thing {
                if(var1.method_496()) {
                   StringBuffer info = new StringBuffer();
                   info.append(super.name).append("\n");
-                  var1.method_490(info.toString(), Screen.field_26, false, -1);
+                  var1.addText(info.toString(), Screen.field_26, false, -1);
                   info.delete(0, info.length());
                   info.append(MessagesContainer.getMessage(18)).append(": ").append(MessagesContainer.method_574(this.getRaceId())).append("\n");
-                  var1.method_490(info.toString(), Screen.field_26, false, -1);
+                  var1.addText(info.toString(), Screen.field_26, false, -1);
                   info.delete(0, info.length());
                   var1.field_429 += Screen.field_26.field_500 / 2;
                   if(var2 != null && !var2.equals("")) {
                      info.append(var2).append("\n");
-                     var1.method_490(info.toString(), Screen.field_26, false, -1);
+                     var1.addText(info.toString(), Screen.field_26, false, -1);
                      info.delete(0, info.length());
                   }
 
                   var1.field_429 += Screen.field_26.field_500 / 2;
                   if(!this.GetLocation().equals("") && (short)(var3 & 4096) == 4096) {
                      info.append(MessagesContainer.getMessage(174)).append(": ").append(this.GetLocation());
-                     var1.method_490(info.toString(), Screen.field_26, false, -1);
+                     var1.addText(info.toString(), Screen.field_26, false, -1);
                      info.delete(0, info.length());
                   }
 
                   if(this.characteristics != null && this.characteristics.length > 0) {
                      info.append(MessagesContainer.getMessage(55)).append(":\n");
-                     var1.method_490(info.toString(), Screen.field_26, false, -1);
+                     var1.addText(info.toString(), Screen.field_26, false, -1);
                      info.delete(0, info.length());
 
                      for(byte var6 = 0; var6 < this.characteristics.length; ++var6) {
@@ -251,13 +251,13 @@ public final class Item extends Thing {
                         }
 
                         info.append(Math.abs(this.characteristics[var6].value)).append("\n");
-                        var1.method_490(info.toString(), Screen.field_26, false, -1);
+                        var1.addText(info.toString(), Screen.field_26, false, -1);
                         info.delete(0, info.length());
                      }
                   }
 
                   info.append(this.description).append("\n");
-                  var1.method_490(info.toString(), Screen.field_26, false, -1);
+                  var1.addText(info.toString(), Screen.field_26, false, -1);
                   info.delete(0, info.length());
                }
 

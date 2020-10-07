@@ -121,7 +121,7 @@ public final class StrategicScreen extends Screen {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
          if(GlobalStorage.method_698()) {
             byte var2;
@@ -175,7 +175,7 @@ public final class StrategicScreen extends Screen {
                }
             } else if(this.field_78 != null && this.field_79 >= this.field_78.length) {
                try {
-                  this.method_86();
+                  this.heroMotionEnd();
                   if((field_64 = method_125(Hero.self.field_684, Hero.self.field_685)) == -1) {
                      method_84(Hero.self.field_684 + 25, Hero.self.field_685 + 25);
                   }
@@ -215,7 +215,7 @@ public final class StrategicScreen extends Screen {
             }
 
             method_103(var1, var2, var8, var9, var5);
-            this.method_87(var1);
+            this.drawHeroWay(var1);
             this.method_51();
             this.method_44(var1, (short)(this.method_104() - 17 - field_62), (short)(this.method_105() - 17 - field_63));
             super.popupMenu.method_604(var1);
@@ -509,7 +509,7 @@ public final class StrategicScreen extends Screen {
    }
 
    // $FF: renamed from: e () boolean
-   private boolean method_86() {
+   private boolean heroMotionEnd() {
       try {
          byte var1 = this.field_78[this.field_78.length - 1][0];
          byte var2 = this.field_78[this.field_78.length - 1][1];
@@ -580,7 +580,7 @@ public final class StrategicScreen extends Screen {
    }
 
    // $FF: renamed from: c (javax.microedition.lcdui.Graphics) void
-   private void method_87(Graphics var1) {
+   private void drawHeroWay(Graphics var1) {
       try {
          Hero var2 = Hero.self;
          synchronized(Hero.self) {
@@ -1360,7 +1360,7 @@ public final class StrategicScreen extends Screen {
    }
 
    // $FF: renamed from: a (byte, byte, byte, byte) byte[][]
-   public static final byte[][] method_110(byte var0, byte var1, byte var2, byte var3) {
+   public static final byte[][] getWaveMatrix(byte var0, byte var1, byte var2, byte var3) {
       try {
          if(!GlobalStorage.method_698()) {
             return null;
@@ -1439,7 +1439,7 @@ public final class StrategicScreen extends Screen {
 
    // $FF: renamed from: b () void
    public final synchronized void createWaveMatrix() {
-      this.field_77 = method_110(Hero.self.getPositionX(), Hero.self.getPositionY(), method_112(), method_113());
+      this.field_77 = getWaveMatrix(Hero.self.getPositionX(), Hero.self.getPositionY(), method_112(), method_113());
    }
 
    // $FF: renamed from: b () byte

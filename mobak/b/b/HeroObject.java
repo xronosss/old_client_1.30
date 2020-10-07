@@ -105,7 +105,7 @@ public final class HeroObject extends MapObject {
                            if(var7.field_368 == null) {
                               var7.field_366 = var7.field_356;
                               var7.field_367 = var7.field_357;
-                              var7.field_368 = StrategicScreen.method_110(var7.field_366, var7.field_367, var7.field_363, var7.field_363);
+                              var7.field_368 = StrategicScreen.getWaveMatrix(var7.field_366, var7.field_367, var7.field_363, var7.field_363);
                            }
 
                            if(var7.field_368 != null) {

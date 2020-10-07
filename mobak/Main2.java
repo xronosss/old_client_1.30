@@ -855,7 +855,7 @@ public class Main2 extends MIDlet implements class_1 {
    // $FF: renamed from: f () void
    static void method_871() {
       try {
-         if(ScreenDrawer.self.GetScreen() != null) {
+         if(ScreenDrawer.self.getScreen() != null) {
             Screen.method_74();
          }
 

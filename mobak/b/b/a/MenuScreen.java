@@ -106,7 +106,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
          }
 
          ScreenDrawer.self.method_346();
-         ScreenDrawer.self.GetScreen().helpViewInit();
+         ScreenDrawer.self.getScreen().helpViewInit();
          return true;
       default:
          return super.method_38(button);
@@ -326,7 +326,7 @@ public abstract class MenuScreen extends Screen implements class_1 {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public void method_30(Graphics var1) {
+   public void drawScreen(Graphics var1) {
       try {
          ScreenDrawer.method_369(var1, 0, 0, (short) ScreenDrawer.self.getWidth(), (short) ScreenDrawer.self.getHeight());
          if(field_99 == -1) {

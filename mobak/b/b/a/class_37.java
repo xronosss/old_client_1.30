@@ -1041,8 +1041,8 @@ public final class class_37 extends MenuScreen {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final synchronized void method_30(Graphics var1) {
-      super.method_30(var1);
+   public final synchronized void drawScreen(Graphics var1) {
+      super.drawScreen(var1);
       this.method_51();
       short var2 = (short)(this.method_136() + 5);
       this.field_199.removeAllElements();

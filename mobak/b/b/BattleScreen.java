@@ -227,7 +227,7 @@ public final class BattleScreen extends Screen {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       byte var2 = 1;
 
       try {

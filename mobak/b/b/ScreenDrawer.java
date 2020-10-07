@@ -80,7 +80,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
    // $FF: renamed from: a mobak.b.b.a
    public BattleScreen battleScreen;
    // $FF: renamed from: a mobak.b.b.a.t[]
-   private MenuScreen[] field_313;
+   private MenuScreen[] menuScreens;
    // $FF: renamed from: c byte
    private byte screenId;
    // $FF: renamed from: c boolean
@@ -146,7 +146,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
       this.field_290 = new String[5];
       this.field_291 = new short[5];
       this.field_309 = 0;
-      this.field_313 = new MenuScreen[10];
+      this.menuScreens = new MenuScreen[10];
       this.field_315 = false;
       this.field_316 = false;
       this.field_317 = false;
@@ -204,7 +204,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                try {
                   screenDrawer.field_292 = false;
                   Screen var4;
-                  if(screenDrawer.field_326 && (var4 = screenDrawer.GetScreen()) != null && !screenDrawer.method_366()) {
+                  if(screenDrawer.field_326 && (var4 = screenDrawer.getScreen()) != null && !screenDrawer.method_366()) {
                      var4.method_66(screenDrawer.field_328, screenDrawer.field_329, (int)(System.currentTimeMillis() - screenDrawer.field_327));
                   }
 
@@ -230,8 +230,8 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                         }
                         break;
                      case 4:
-                        if(var5.field_288 >= 0 && var5.field_313 != null && var5.field_313.length > var5.field_288 && var5.field_313[var5.field_288] != null && var5.field_313[var5.field_288].method_52()) {
-                           var5.field_313[var5.field_288].method_31(var5.field_338);
+                        if(var5.field_288 >= 0 && var5.menuScreens != null && var5.menuScreens.length > var5.field_288 && var5.menuScreens[var5.field_288] != null && var5.menuScreens[var5.field_288].method_52()) {
+                           var5.menuScreens[var5.field_288].method_31(var5.field_338);
                         }
                      }
                   } catch (Exception var13) {
@@ -331,7 +331,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                         var10001 = screenDrawer.battleScreen != null?screenDrawer.battleScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      case 4:
-                        var10001 = screenDrawer.field_288 >= 0 && screenDrawer.field_313 != null && screenDrawer.field_313.length > screenDrawer.field_288 && screenDrawer.field_313[screenDrawer.field_288] != null?screenDrawer.field_313[screenDrawer.field_288].method_35():(Hero.self == null?0: Hero.self.method_932());
+                        var10001 = screenDrawer.field_288 >= 0 && screenDrawer.menuScreens != null && screenDrawer.menuScreens.length > screenDrawer.field_288 && screenDrawer.menuScreens[screenDrawer.field_288] != null?screenDrawer.menuScreens[screenDrawer.field_288].method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      default:
                         var10001 = Hero.self == null?0: Hero.self.method_932();
@@ -371,7 +371,9 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
 
                   if(screenDrawer.method_324() && screenDrawer.textScreen2 != null) {
                      screenDrawer.textScreen2.method_495();
+                     screenDrawer.textScreen2.addText(screenDrawer.getScreen().toString(), Screen.field_27, false, 0); //я дополнил
                      SocketListener.self.writeLog(screenDrawer.textScreen2);
+
                      screenDrawer.textScreen2.method_484(screenDrawer.field_338, (byte)0);
                   }
 
@@ -525,7 +527,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
             this.field_335 = true;
          }
 
-         Screen var2 = this.GetScreen();
+         Screen var2 = this.getScreen();
          if(var1 == field_323) {
             field_322 = !field_322;
          }
@@ -591,7 +593,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
    }
 
    // $FF: renamed from: a () mobak.b.b.j
-   public final synchronized Screen GetScreen() {
+   public final synchronized Screen getScreen() {
       switch(this.method_322()) {
       case 1:
          return this.menuScreen;
@@ -601,7 +603,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
          return this.battleScreen;
       case 4:
          if(this.field_288 >= 0) {
-            return this.field_313[this.field_288];
+            return this.menuScreens[this.field_288];
          }
       default:
          this.screenId = 1;
@@ -737,13 +739,13 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
    public final synchronized void method_339(MainMenuScreen var1, boolean var2) {
       ScreenDrawer var3 = this;
 
-      for(byte var4 = 0; var4 < var3.field_313.length; ++var4) {
-         var3.field_313[var4] = null;
+      for(byte var4 = 0; var4 < var3.menuScreens.length; ++var4) {
+         var3.menuScreens[var4] = null;
       }
 
       var3.field_288 = -1;
       Screen var5;
-      if((var5 = var3.GetScreen()) != null) {
+      if((var5 = var3.getScreen()) != null) {
          var5.helpViewInit();
       }
 
@@ -755,13 +757,13 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
    public final synchronized void method_340(MenuScreen var1, boolean var2) {
       if(var1 != null) {
          ++this.field_288;
-         if(this.field_288 >= this.field_313.length) {
-            MenuScreen[] var5 = new MenuScreen[this.field_313.length * 3 / 2];
-            System.arraycopy(this.field_313, 0, var5, 0, this.field_313.length);
-            this.field_313 = var5;
+         if(this.field_288 >= this.menuScreens.length) {
+            MenuScreen[] var5 = new MenuScreen[this.menuScreens.length * 3 / 2];
+            System.arraycopy(this.menuScreens, 0, var5, 0, this.menuScreens.length);
+            this.menuScreens = var5;
          }
 
-         this.field_313[this.field_288] = var1;
+         this.menuScreens[this.field_288] = var1;
          if(var2 && this.method_322() != 4) {
             if(Hero.self != null) {
                var1.setRace(Hero.self.method_932());
@@ -770,10 +772,10 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
             this.method_343((byte)4);
          } else {
             if(this.field_288 > 0) {
-               var1.method_34(this.field_313[this.field_288 - 1]);
+               var1.method_34(this.menuScreens[this.field_288 - 1]);
             }
 
-            this.field_313[this.field_288].helpViewInit();
+            this.menuScreens[this.field_288].helpViewInit();
          }
       }
    }
@@ -794,7 +796,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
 
    // $FF: renamed from: a () mobak.b.b.a.t
    public final MenuScreen method_342() {
-      return this.field_288 < 0?null:this.field_313[this.field_288];
+      return this.field_288 < 0?null:this.menuScreens[this.field_288];
    }
 
    // $FF: renamed from: b (byte) void
@@ -803,7 +805,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
          this.screenId = (byte)(this.screenId << 4);
          this.screenId = (byte)(this.screenId | 4);
          Screen var2;
-         if((var2 = this.GetScreen()) != null) {
+         if((var2 = this.getScreen()) != null) {
             var2.helpViewInit();
          }
 
@@ -817,14 +819,14 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
       if(this.method_322() != 4) {
          this.field_288 = -1;
          if(this.method_322() != 3) {
-            for(var1 = 0; var1 < this.field_313.length; ++var1) {
-               this.field_313[var1] = null;
+            for(var1 = 0; var1 < this.menuScreens.length; ++var1) {
+               this.menuScreens[var1] = null;
             }
          }
       }
 
       Screen var2;
-      if((var2 = this.GetScreen()) != null) {
+      if((var2 = this.getScreen()) != null) {
          var2.helpViewInit();
       }
 
@@ -839,7 +841,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
          this.screenId = (byte)(this.screenId >> 4);
          this.screenId |= var1;
          Screen var3;
-         if((var3 = this.GetScreen()) != null) {
+         if((var3 = this.getScreen()) != null) {
             var3.helpViewInit();
          }
 
@@ -848,10 +850,10 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
 
    // $FF: renamed from: g () void
    public final synchronized void method_346() {
-      this.field_313[this.field_288] = null;
+      this.menuScreens[this.field_288] = null;
       --this.field_288;
-      if(this.field_288 >= 0 && this.field_313[this.field_288] != null) {
-         this.field_313[this.field_288].helpViewInit();
+      if(this.field_288 >= 0 && this.menuScreens[this.field_288] != null) {
+         this.menuScreens[this.field_288].helpViewInit();
       }
 
       if(this.field_288 < 0 && this.method_322() == 4) {
@@ -1057,7 +1059,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
             int var6 = var2;
             var2 = var1;
             Screen var5;
-            if((var5 = this.GetScreen()) != null) {
+            if((var5 = this.getScreen()) != null) {
                var5.method_64(var2, var6);
             }
          }
@@ -1098,7 +1100,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
             }
 
             Screen var6;
-            if(!this.field_315 && (var6 = this.GetScreen()) != null) {
+            if(!this.field_315 && (var6 = this.getScreen()) != null) {
                var6.method_67();
                this.field_325 = var6.method_63(var1, var2);
             }
@@ -1113,7 +1115,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
       } else {
          this.field_326 = false;
          if(!this.field_325 && (!this.field_318 || !this.field_315 || this.field_317)) {
-            Screen var4 = this.GetScreen();
+            Screen var4 = this.getScreen();
             long var7 = System.currentTimeMillis();
             var4.method_65(var1, var2, (int)(var7 - this.field_327));
          }

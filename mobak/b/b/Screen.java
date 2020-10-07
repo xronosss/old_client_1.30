@@ -88,11 +88,11 @@ public abstract class Screen implements class_1 {
 
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   protected abstract void method_30(Graphics var1);
+   protected abstract void drawScreen(Graphics var1);
 
    // $FF: renamed from: b (javax.microedition.lcdui.Graphics) void
    public final void method_31(Graphics var1) {
-      this.method_30(var1);
+      this.drawScreen(var1);
       if(this.field_44 != null) {
          Button var3;
          if(this.field_42) {
@@ -470,7 +470,7 @@ public abstract class Screen implements class_1 {
       try {
          ViewHelp var1;
          if(Main2.self.method_854(this.field_52) && (var1 = ViewHelp.method_273(this.field_52)) != null) {
-            ScreenDrawer.self.method_340(var1, ScreenDrawer.self.GetScreen() == this);
+            ScreenDrawer.self.method_340(var1, ScreenDrawer.self.getScreen() == this);
          }
 
       } catch (Exception var2) {

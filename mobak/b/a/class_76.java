@@ -113,10 +113,10 @@ public final class class_76 extends Thing {
       if(var1 != null) {
          var1.method_495();
          if(var2 != null && !var2.equals("")) {
-            var1.method_490(var2, Screen.field_26, false, -1);
+            var1.addText(var2, Screen.field_26, false, -1);
          }
 
-         var1.method_490(this.field_589, Screen.field_26, false, -1);
+         var1.addText(this.field_589, Screen.field_26, false, -1);
       }
    }
 

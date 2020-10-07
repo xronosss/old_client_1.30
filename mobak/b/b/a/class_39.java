@@ -221,7 +221,7 @@ public final class class_39 extends View {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
          if(super.field_52 == -2 && !this.field_238) {
             if(Hero.self.method_912() <= 0) {

@@ -86,7 +86,7 @@ public final class class_34 extends MenuScreen {
       class_55 var10001 = new class_55((short)10, this.method_136(), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - PopupMenu.method_583()), false, false);
       this.field_144 = var10001;
       this.field_144.field_429 = 10;
-      this.field_144.method_490(MessagesContainer.getMessage(134) + ":    \f4" + this.field_154 + " / " + this.field_155, Screen.field_26, false, -1);
+      this.field_144.addText(MessagesContainer.getMessage(134) + ":    \f4" + this.field_154 + " / " + this.field_155, Screen.field_26, false, -1);
       this.field_160 = (short)(this.field_144.field_429 + this.method_136() + 5);
       this.field_144.field_429 += 15;
       var10001 = new class_55((short)10, (short)this.field_144.field_429, (short)(ScreenDrawer.self.getWidth() - 20), (short)102, false, false);
@@ -114,7 +114,7 @@ public final class class_34 extends MenuScreen {
       this.field_149 = new String[Hero.self.skills.length][2];
       this.field_161 = (short)(this.field_144.field_429 + this.method_136() + 5);
       this.field_144.field_429 += 15;
-      this.field_144.method_490(MessagesContainer.getMessage(104) + ":", Screen.field_26, false, -1);
+      this.field_144.addText(MessagesContainer.getMessage(104) + ":", Screen.field_26, false, -1);
       var10001 = new class_55((short)10, (short)this.field_144.field_429, (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.field_144.field_429), false, false);
       this.field_146 = var10001;
       this.field_146.field_429 = 2;
@@ -433,9 +433,9 @@ public final class class_34 extends MenuScreen {
    public final void helpViewInit() {}
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
-         super.method_30(var1);
+         super.drawScreen(var1);
          this.field_144.method_484(var1, (byte)0);
          ScreenDrawer.method_371(var1, field_162, ScreenDrawer.self.getWidth() / 2, this.field_160, 3);
          ScreenDrawer.method_371(var1, field_162, ScreenDrawer.self.getWidth() / 2, this.field_161, 3);

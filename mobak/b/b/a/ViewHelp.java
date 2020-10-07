@@ -116,7 +116,7 @@ public final class ViewHelp extends View {
                   }
                } else {
                   var10.field_53.field_429 += 5;
-                  var10.field_53.method_490(var3, Screen.field_26, false, -1);
+                  var10.field_53.addText(var3, Screen.field_26, false, -1);
                }
             }
          }
@@ -176,7 +176,7 @@ public final class ViewHelp extends View {
 
    // $FF: renamed from: d (java.lang.String) void
    public final void method_274(String var1) {
-      super.field_53.method_490(var1, Screen.field_26, false, -1);
+      super.field_53.addText(var1, Screen.field_26, false, -1);
    }
 
    // $FF: renamed from: e () boolean
@@ -191,9 +191,9 @@ public final class ViewHelp extends View {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
-         super.method_30(var1);
+         super.drawScreen(var1);
          if(super.field_52 == -5) {
             try {
                this.method_261(var1);
@@ -202,19 +202,19 @@ public final class ViewHelp extends View {
 
                   try {
                      var2.append(Hero.self.method_890());
-                     super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                     super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                      (var2 = var2.delete(0, var2.toString().length())).append(MessagesContainer.getMessage(18)).append(": ").append(MessagesContainer.method_574(Hero.self.race));
-                     super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                     super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                      (var2 = var2.delete(0, var2.toString().length())).append(MessagesContainer.getMessage(102)).append(": ").append(Hero.self.method_905());
-                     super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                     super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                      (var2 = var2.delete(0, var2.toString().length())).append(MessagesContainer.getMessage(101, new String[]{String.valueOf(Hero.self.method_902()), String.valueOf(Hero.self.method_906() + 1)}));
-                     super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                     super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                      var2 = var2.delete(0, var2.toString().length());
                      String[] var3 = Hero.self.method_928();
 
                      for(byte var4 = 0; var4 < var3.length; ++var4) {
                         var2.append(var3[var4]);
-                        super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                        super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                         var2 = var2.delete(0, var2.toString().length());
                      }
                   } catch (Exception var7) {
@@ -226,7 +226,7 @@ public final class ViewHelp extends View {
                   try {
                      if(Hero.self.characteristics != null && Hero.self.characteristics.length > 0) {
                         var2.append("\n").append(MessagesContainer.getMessage(103)).append(": ");
-                        super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                        super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                         var2 = var2.delete(0, var2.toString().length());
 
                         for(currentCharacteriscticNumber = 0; currentCharacteriscticNumber < Hero.self.characteristics.length; ++currentCharacteriscticNumber) {
@@ -246,7 +246,7 @@ public final class ViewHelp extends View {
                            }
 
                            var2.append("\f1\n");
-                           super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                           super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                            var2 = var2.delete(0, var2.toString().length());
                         }
                      }
@@ -257,7 +257,7 @@ public final class ViewHelp extends View {
                   try {
                      if(Hero.self.skills != null && Hero.self.skills.length > 0) {
                         var2.append("\n").append(MessagesContainer.getMessage(104)).append(": ");
-                        super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                        super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                         var2 = var2.delete(0, var2.toString().length());
 
                         for(currentCharacteriscticNumber = 0; currentCharacteriscticNumber < Hero.self.skills.length; ++currentCharacteriscticNumber) {
@@ -277,7 +277,7 @@ public final class ViewHelp extends View {
                            }
 
                            var2.append("\f1\n");
-                           super.field_53.method_490(var2.toString(), Screen.field_26, false, -1);
+                           super.field_53.addText(var2.toString(), Screen.field_26, false, -1);
                            var2 = var2.delete(0, var2.toString().length());
                         }
                      }

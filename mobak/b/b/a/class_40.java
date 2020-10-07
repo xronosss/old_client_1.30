@@ -203,7 +203,7 @@ public final class class_40 extends View {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
          if(super.field_52 == -3 && this.field_240) {
             this.method_51();

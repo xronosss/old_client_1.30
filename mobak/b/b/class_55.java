@@ -660,7 +660,7 @@ public final class class_55 extends class_50 {
    }
 
    // $FF: renamed from: a (java.lang.String, mobak.c.a, boolean, int) short
-   public final short method_490(String var1, class_62 var2, boolean var3, int var4) {
+   public final short addText(String var1, class_62 var2, boolean var3, int var4) {
       return this.method_489(var1, var2, (byte)0, var3, var4);
    }
 

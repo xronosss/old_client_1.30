@@ -329,7 +329,7 @@ public final class MessageProcessor {
             var2 = PacketManager.readString();
             ScreenDrawer.method_330(var1, var2);
             Screen.method_48();
-            ScreenDrawer.self.GetScreen().method_43((byte)0);
+            ScreenDrawer.self.getScreen().method_43((byte)0);
             var13 = true;
          } else if(var18 == 3) {
             PacketManager.readInt();
@@ -936,7 +936,7 @@ public final class MessageProcessor {
             }
          }
 
-         ScreenDrawer.self.GetScreen().helpViewInit();
+         ScreenDrawer.self.getScreen().helpViewInit();
          if(ScreenDrawer.self.battleScreen != null) {
             ScreenDrawer.self.battleScreen.method_293();
          }
@@ -964,7 +964,7 @@ public final class MessageProcessor {
          }
 
          Hero.self.addItemsToBag(itemsInBag);
-         ScreenDrawer.self.GetScreen().helpViewInit();
+         ScreenDrawer.self.getScreen().helpViewInit();
       } else {
          Hero.self.addItemsToBag((Item[])null);
       }
@@ -1258,7 +1258,7 @@ public final class MessageProcessor {
    // $FF: renamed from: p () boolean
    private static final boolean method_1006() throws Exception {
       ScreenDrawer.self.method_350(true);
-      Screen screen = ScreenDrawer.self.GetScreen();
+      Screen screen = ScreenDrawer.self.getScreen();
       if(screen != null) {
          long var1 = PacketManager.readLong();
          String var3 = null;
@@ -2016,7 +2016,7 @@ public final class MessageProcessor {
          ScreenDrawer.self.method_342();
       default:
          Screen var0;
-         if((var0 = ScreenDrawer.self.GetScreen()) == null) {
+         if((var0 = ScreenDrawer.self.getScreen()) == null) {
             return false;
          } else {
             short var1 = PacketManager.readShort();
@@ -2125,7 +2125,7 @@ public final class MessageProcessor {
          Item item = createItem(false);
          Hero.self.changeItemsInBag(itemId, previousItemsCount);
          Hero.self.addItemOnHero(item);
-         ScreenDrawer.self.GetScreen().helpViewInit();
+         ScreenDrawer.self.getScreen().helpViewInit();
       } catch (Exception var3) {
          ;
       }
@@ -2140,7 +2140,7 @@ public final class MessageProcessor {
          Item item = createItem(false);
          Hero.self.method_922(removedItemId);
          Hero.self.addItemToBag(item);
-         ScreenDrawer.self.GetScreen().helpViewInit();
+         ScreenDrawer.self.getScreen().helpViewInit();
       } catch (Exception var2) {
          ;
       }
@@ -2190,14 +2190,14 @@ public final class MessageProcessor {
 
    // $FF: renamed from: Z () boolean
    private static final boolean method_1046() {
-      ScreenDrawer.self.GetScreen();
+      ScreenDrawer.self.getScreen();
       Screen.method_74();
       return true;
    }
 
    // $FF: renamed from: aa () boolean
    private static final boolean method_1047() {
-      ScreenDrawer.self.GetScreen().method_76();
+      ScreenDrawer.self.getScreen().method_76();
       return true;
    }
 
@@ -2215,13 +2215,13 @@ public final class MessageProcessor {
       button.method_654(MessagesContainer.getMessage(263));
       packetType = packetTypes[86];
       button.nextPacketType = packetType;
-      ScreenDrawer.self.GetScreen().method_38(button);
+      ScreenDrawer.self.getScreen().method_38(button);
       return true;
    }
 
    // $FF: renamed from: ac () boolean
    private static final boolean method_1049() throws Exception {
-      ScreenDrawer.self.GetScreen();
+      ScreenDrawer.self.getScreen();
       Screen.method_55(PacketManager.readShort());
       return true;
    }

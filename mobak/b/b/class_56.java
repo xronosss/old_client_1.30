@@ -41,7 +41,7 @@ final class class_56 {
       short var6 = (short)(this.field_434 + (this.field_438 != null && !this.field_438.equals("")?50:30));
       class_55 var10001 = new class_55((short)(this.field_433 + 20), var6, (short)(this.field_435 - 30), (short)(this.field_436 - 20 - (var6 - this.field_434) - 10), true, false);
       this.field_439 = var10001;
-      this.field_439.method_490(var3, this.field_442, false, -1);
+      this.field_439.addText(var3, this.field_442, false, -1);
       this.field_440 = var4;
       this.field_441 = var5;
    }

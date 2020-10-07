@@ -428,7 +428,7 @@ public abstract class View extends MenuScreen {
       StrategicScreen.method_122();
       method_253(Hero.self.method_882((byte)-1));
       ScreenDrawer.self.method_346();
-      ScreenDrawer.self.GetScreen().helpViewInit();
+      ScreenDrawer.self.getScreen().helpViewInit();
       return true;
    }
 
@@ -476,7 +476,7 @@ public abstract class View extends MenuScreen {
    // $FF: renamed from: c (javax.microedition.lcdui.Graphics) void
    protected final void method_259(Graphics var1) {
       if(var1 != null) {
-         super.method_30(var1);
+         super.drawScreen(var1);
          Thing[] var3;
          if(this.field_228 < 0) {
             boolean var2 = false;
@@ -515,7 +515,7 @@ public abstract class View extends MenuScreen {
    // $FF: renamed from: d (javax.microedition.lcdui.Graphics) void
    protected final void method_261(Graphics var1) {
       if(var1 != null) {
-         super.method_30(var1);
+         super.drawScreen(var1);
          if(this.field_228 < 0) {
             boolean var2 = false;
             Thing[] var3;

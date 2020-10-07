@@ -292,22 +292,22 @@ public final class Unit extends Thing {
          var1.method_495();
          StringBuffer info = new StringBuffer();
          info.append(super.name);
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          info.append(MessagesContainer.getMessage(18)).append(": ").append(MessagesContainer.method_574(this.getRaceId()));
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          var1.field_429 += Screen.field_26.field_500 / 2;
          if(var2 != null && !var2.equals("")) {
             info.append(var2).append("\n");
-            var1.method_490(info.toString(), Screen.field_26, false, -1);
+            var1.addText(info.toString(), Screen.field_26, false, -1);
             info.delete(0, info.length());
          }
 
          var1.field_429 += Screen.field_26.field_500 / 2;
          if(!this.GetLocation().equals("") && (short)(var3 & 4096) == 4096) {
             info.append(MessagesContainer.getMessage(174)).append(": ").append(this.GetLocation());
-            var1.method_490(info.toString(), Screen.field_26, false, -1);
+            var1.addText(info.toString(), Screen.field_26, false, -1);
             info.delete(0, info.length());
          }
 
@@ -317,7 +317,7 @@ public final class Unit extends Thing {
             info.append(MessagesContainer.getMessage(108)).append(": ").append(this.field_617);
          }
 
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          info.append(MessagesContainer.getMessage(109)).append(": ");
          if(this.field_638 != 0) {
@@ -325,10 +325,10 @@ public final class Unit extends Thing {
          }
 
          info.append(this.field_618);
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          info.append(MessagesContainer.getMessage(111)).append(": ");
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          if(this.field_619 > 0 && this.field_619 <= 3) {
             StringBuffer var5;
@@ -340,24 +340,24 @@ public final class Unit extends Thing {
             info.append("  ").append(MessagesContainer.getMessage(114));
          }
 
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          info.append(MessagesContainer.getMessage(47)).append(": ");
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          var2 = method_795(this.field_636);
          if(this.field_624 != 0 || this.field_625 != 0) {
             info.append("  - ").append(MessagesContainer.getMessage(115)).append(": ").append(var2).append(this.field_624).append(" - ").append(this.field_625);
-            var1.method_490(info.toString(), Screen.field_26, false, -1);
+            var1.addText(info.toString(), Screen.field_26, false, -1);
             info.delete(0, info.length());
             info.append("     ").append(MessagesContainer.getMessage(163)).append(": ");
             info.append(this.field_626);
-            var1.method_490(info.toString(), Screen.field_26, false, -1);
+            var1.addText(info.toString(), Screen.field_26, false, -1);
             info.delete(0, info.length());
          }
 
          info.append("  - ").append(MessagesContainer.getMessage(116)).append(": ").append(var2).append(this.field_622).append(" - ").append(this.field_623);
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          info.append(MessagesContainer.getMessage(117)).append(": ");
          if(this.field_637 != 0) {
@@ -365,17 +365,17 @@ public final class Unit extends Thing {
          }
 
          info.append(this.field_628).append(" - ").append(this.field_627);
-         var1.method_490(info.toString(), Screen.field_26, false, -1);
+         var1.addText(info.toString(), Screen.field_26, false, -1);
          info.delete(0, info.length());
          if(this.field_639 != null && this.field_639.size() > 0) {
             info.append(MessagesContainer.getMessage(71)).append(": ");
-            var1.method_490(info.toString(), Screen.field_26, false, -1);
+            var1.addText(info.toString(), Screen.field_26, false, -1);
             info.delete(0, info.length());
 
             for(var3 = 0; var3 < this.field_639.size(); ++var3) {
                if(this.field_639.elementAt(var3) != null && !(var2 = this.field_639.elementAt(var3).toString()).equals("")) {
                   info.append("   ").append(var2);
-                  var1.method_490(info.toString(), Screen.field_26, false, -1);
+                  var1.addText(info.toString(), Screen.field_26, false, -1);
                   info.delete(0, info.length());
                }
             }

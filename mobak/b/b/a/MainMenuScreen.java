@@ -209,7 +209,7 @@ public final class MainMenuScreen extends MenuScreen {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       try {
          short var10000 = this.method_149();
          class_62 var2 = this.field_130;
@@ -223,7 +223,7 @@ public final class MainMenuScreen extends MenuScreen {
          int var6;
          int var7;
          if(this.mainMenuType != 1 && this.mainMenuType != 4) {
-            super.method_30(var1);
+            super.drawScreen(var1);
          } else {
             if(!ScreenDrawer.self.method_347()) {
                StrategicScreen.method_102(var1, 300, 200);
@@ -655,7 +655,7 @@ public final class MainMenuScreen extends MenuScreen {
          var1.append("screen: LocationMap\n");
       }
 
-      if(ScreenDrawer.self.GetScreen() == this) {
+      if(ScreenDrawer.self.getScreen() == this) {
          var1.append("state: active");
       } else {
          var1.append("status: passive");

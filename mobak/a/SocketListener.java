@@ -243,8 +243,8 @@ public final class SocketListener {
    }
 
    // $FF: renamed from: a (mobak.b.b.q) void
-   public final void writeLog(class_55 var1) {
-      if(var1 != null) {
+   public final void writeLog(class_55 logScreen) {
+      if(logScreen != null) {
          if(this.field_479 == null) {
             this.field_479 = new StringBuffer();
          } else {
@@ -253,46 +253,46 @@ public final class SocketListener {
 
          if(this.dataReader != null) {
             if(this.dataReader.field_444) {
-               var1.method_490("Receiving", Screen.field_26, false, 0);
+               logScreen.addText("Receiving", Screen.field_26, false, 0);
             } else {
-               var1.method_490("Waiting", Screen.field_26, false, 0);
+               logScreen.addText("Waiting", Screen.field_26, false, 0);
             }
 
             this.field_479.append("last read: ").append(this.dataReader.field_443);
-            var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+            logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
             this.field_479.delete(0, this.field_479.length());
             this.field_479.append("bytes read: ").append(this.dataReader.field_449);
-            var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+            logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
             this.field_479.delete(0, this.field_479.length());
          }
 
          if(this.dataSender != null) {
             this.field_479.append("last sent: ").append(class_61.method_560(this.dataSender));
-            var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+            logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
             this.field_479.delete(0, this.field_479.length());
             this.field_479.append("pkg sent: ").append(this.dataSender.packageSent);
-            var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+            logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
             this.field_479.delete(0, this.field_479.length());
             this.field_479.append("bytes sent: ").append(this.dataSender.commandLength);
-            var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+            logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
             this.field_479.delete(0, this.field_479.length());
          }
 
          this.field_479.append("cur. sceen mode: ").append(ScreenDrawer.self.method_359());
-         var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+         logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
          this.field_479.delete(0, this.field_479.length());
          this.field_479.append("prev. sceen mode: ").append(ScreenDrawer.self.method_360());
-         var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+         logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
          this.field_479.delete(0, this.field_479.length());
          this.field_479.append("freeMemory: ").append(Runtime.getRuntime().freeMemory());
-         var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+         logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
          this.field_479.delete(0, this.field_479.length());
          this.field_479.append("images container: ").append(GlobalStorage.method_717());
-         var1.method_490(this.field_479.toString(), Screen.field_26, false, 0);
+         logScreen.addText(this.field_479.toString(), Screen.field_26, false, 0);
 
          for(byte var2 = 0; var2 < field_463.length; ++var2) {
             if(field_463[var2] != null) {
-               var1.method_490(field_463[var2], Screen.field_26, false, 0);
+               logScreen.addText(field_463[var2], Screen.field_26, false, 0);
             }
          }
 

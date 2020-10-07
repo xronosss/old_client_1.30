@@ -35,7 +35,7 @@ public final class class_36 extends MenuScreen {
       class_55 var10001 = new class_55((short)10, (short)(this.method_136() + 8), (short)(ScreenDrawer.self.getWidth() - 20), (short)(ScreenDrawer.self.getHeight() - this.method_136() - 22 - PopupMenu.method_583()), false, false, true);
       super.field_53 = var10001;
       this.field_188 = Screen.field_26;
-      super.field_53.method_490(var3, this.field_188, false, -1);
+      super.field_53.addText(var3, this.field_188, false, -1);
 
       for(int var4 = 0; var4 < super.field_53.method_509(); ++var4) {
          if(super.field_53.method_493(var4).method_471() > 0) {
@@ -130,9 +130,9 @@ public final class class_36 extends MenuScreen {
    }
 
    // $FF: renamed from: a (javax.microedition.lcdui.Graphics) void
-   public final void method_30(Graphics var1) {
+   public final void drawScreen(Graphics var1) {
       synchronized(this) {
-         super.method_30(var1);
+         super.drawScreen(var1);
          switch(this.field_184) {
          case -109:
             this.method_139(var1, this.method_198(), this.field_186, this.field_185, this.field_188);
@@ -367,7 +367,7 @@ public final class class_36 extends MenuScreen {
    public final void method_129(String var1) {
       synchronized(this) {
          super.field_53.method_495();
-         super.field_53.method_490(var1, Screen.field_26, false, -1);
+         super.field_53.addText(var1, Screen.field_26, false, -1);
       }
    }
 
