@@ -194,7 +194,7 @@ public final class MessageProcessor {
          }
 
          if(Hero.self.field_702) {
-            class_35.method_184();
+            class_35.closeChat();
          }
 
          byte[] var26 = null;
@@ -317,7 +317,7 @@ public final class MessageProcessor {
          var12 = ScreenDrawer.self;
          ScreenDrawer.method_319();
          if(Hero.self.field_702) {
-            class_35.method_184();
+            class_35.closeChat();
          }
 
          var18 = PacketManager.readByte();
@@ -878,7 +878,7 @@ public final class MessageProcessor {
    // $FF: renamed from: b () boolean
    private static final boolean method_992() throws Exception {
       if(Hero.self.field_702) {
-         class_35.method_184();
+         class_35.closeChat();
       }
 
       class_10 var0 = new class_10();

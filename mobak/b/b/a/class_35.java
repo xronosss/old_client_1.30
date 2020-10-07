@@ -295,7 +295,7 @@ public final class class_35 extends MenuScreen implements class_1 {
          return true;
       case 58:
          if(this.field_163 == 3) {
-            method_182((byte)1, (byte)0);
+            sendMessageListNavigation((byte)1, (byte)0);
          } else {
             method_183((byte)1);
          }
@@ -351,17 +351,17 @@ public final class class_35 extends MenuScreen implements class_1 {
          }
       case 96:
          if(this.field_163 == 3) {
-            method_182((byte)2, (byte)0);
+            sendMessageListNavigation((byte)2, (byte)0);
          } else {
             method_183((byte)2);
          }
 
          return true;
       case 97:
-         method_184();
+         closeChat();
          return true;
       case 98:
-         method_182((byte)0, (byte)0);
+         sendMessageListNavigation((byte)0, (byte)0);
          return true;
       default:
          return super.method_38(button);
@@ -471,20 +471,20 @@ public final class class_35 extends MenuScreen implements class_1 {
    private boolean method_181() {
       if(this.field_165[this.field_172] != -1) {
          if(this.field_167 == 0) {
-            method_182((byte)0, (byte)0);
+            sendMessageListNavigation((byte)0, (byte)0);
          } else if(this.field_167 == 1) {
             method_183((byte)0);
          }
       } else {
          this.field_177 = this.field_167 != 0;
-         method_182((byte)0, (byte)(this.field_167 + 1));
+         sendMessageListNavigation((byte)0, (byte)(this.field_167 + 1));
       }
 
       return true;
    }
 
    // $FF: renamed from: a (byte, byte) void
-   private static void method_182(byte var0, byte var1) {
+   private static void sendMessageListNavigation(byte var0, byte var1) {
       try {
          OutputGameMessage var10000 = new OutputGameMessage(MessageProcessor.packetTypes[58], (short)0, MessageProcessor.packetTypes[56]);
          OutputGameMessage var2 = var10000;
@@ -512,7 +512,7 @@ public final class class_35 extends MenuScreen implements class_1 {
    }
 
    // $FF: renamed from: b () void
-   public static void method_184() {
+   public static void closeChat() {
       Hero.self.field_702 = false;
       field_183 = null;
 
