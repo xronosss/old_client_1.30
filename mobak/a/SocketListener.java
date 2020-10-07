@@ -243,7 +243,7 @@ public final class SocketListener {
    }
 
    // $FF: renamed from: a (mobak.b.b.q) void
-   public final void method_536(class_55 var1) {
+   public final void writeLog(class_55 var1) {
       if(var1 != null) {
          if(this.field_479 == null) {
             this.field_479 = new StringBuffer();

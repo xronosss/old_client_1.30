@@ -94,7 +94,7 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
    // $FF: renamed from: g boolean
    private boolean field_319;
    // $FF: renamed from: a mobak.b.b.q
-   private class_55 field_320;
+   private class_55 textScreen2;
    // $FF: renamed from: a java.util.Vector
    private static Vector field_321;
    // $FF: renamed from: h boolean
@@ -195,22 +195,22 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                   SocketListener.logMessage("key repeat error: " + var16.getMessage());
                }
 
-               ScreenDrawer var3 = this;
+               ScreenDrawer screenDrawer = this;
                System.currentTimeMillis();
                if(this.field_338 == null) {
                   this.field_338 = this.getGraphics();
                }
 
                try {
-                  var3.field_292 = false;
+                  screenDrawer.field_292 = false;
                   Screen var4;
-                  if(var3.field_326 && (var4 = var3.GetScreen()) != null && !var3.method_366()) {
-                     var4.method_66(var3.field_328, var3.field_329, (int)(System.currentTimeMillis() - var3.field_327));
+                  if(screenDrawer.field_326 && (var4 = screenDrawer.GetScreen()) != null && !screenDrawer.method_366()) {
+                     var4.method_66(screenDrawer.field_328, screenDrawer.field_329, (int)(System.currentTimeMillis() - screenDrawer.field_327));
                   }
 
-                  byte var19 = var3.method_322();
+                  byte var19 = screenDrawer.method_322();
                   byte var6 = var19;
-                  ScreenDrawer var5 = var3;
+                  ScreenDrawer var5 = screenDrawer;
 
                   try {
                      switch(var6) {
@@ -235,42 +235,42 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                         }
                      }
                   } catch (Exception var13) {
-                     SocketListener.logMessage("drawScreen: " + var13.getMessage() + " mode: " + method_361(var3.method_322()));
+                     SocketListener.logMessage("drawScreen: " + var13.getMessage() + " mode: " + method_361(screenDrawer.method_322()));
                      var13.printStackTrace();
                   }
 
-                  if(var3.field_318 && method_338() == null) {
-                     if(!var3.field_315) {
-                        var3.field_315 = true;
+                  if(screenDrawer.field_318 && method_338() == null) {
+                     if(!screenDrawer.field_315) {
+                        screenDrawer.field_315 = true;
                      }
 
                      int var7;
                      int var8;
                      int var11;
-                     if(!var3.field_319) {
-                        method_372(var3.field_338, GlobalStorage.getImage(field_296), 0, 0, GlobalStorage.getImage(field_296).getWidth(), GlobalStorage.getImage(field_296).getHeight(), 0, var3.getWidth() / 2, var3.getHeight() / 2, 3);
-                        if(var3.field_309 >= 8) {
-                           var3.field_309 = 0;
+                     if(!screenDrawer.field_319) {
+                        method_372(screenDrawer.field_338, GlobalStorage.getImage(field_296), 0, 0, GlobalStorage.getImage(field_296).getWidth(), GlobalStorage.getImage(field_296).getHeight(), 0, screenDrawer.getWidth() / 2, screenDrawer.getHeight() / 2, 3);
+                        if(screenDrawer.field_309 >= 8) {
+                           screenDrawer.field_309 = 0;
                         }
 
                         Image var21;
                         var7 = (var21 = GlobalStorage.getImage(field_295)).getWidth() / 8;
                         var8 = var21.getHeight();
-                        method_372(var3.field_338, var21, var7 * var3.field_309, 0, var7, var8, 0, (var3.getWidth() - var7) / 2, (var3.getHeight() - var8) / 2, 0);
-                        ++var3.field_309;
+                        method_372(screenDrawer.field_338, var21, var7 * screenDrawer.field_309, 0, var7, var8, 0, (screenDrawer.getWidth() - var7) / 2, (screenDrawer.getHeight() - var8) / 2, 0);
+                        ++screenDrawer.field_309;
                      } else {
                         if(field_297 < 0) {
                            field_297 = GlobalStorage.method_711("logo.png");
                         }
 
                         var11 = 3342336;
-                        Graphics var10 = var3.field_338;
-                        var3.field_338.setColor(var11);
-                        var3.field_338.fillRect(0, 0, var3.getWidth(), var3.getHeight());
-                        method_370(var3.field_338, GlobalStorage.getImage(field_297), var3.getWidth() / 2, var3.getHeight() / 2, 3);
+                        Graphics var10 = screenDrawer.field_338;
+                        screenDrawer.field_338.setColor(var11);
+                        screenDrawer.field_338.fillRect(0, 0, screenDrawer.getWidth(), screenDrawer.getHeight());
+                        method_370(screenDrawer.field_338, GlobalStorage.getImage(field_297), screenDrawer.getWidth() / 2, screenDrawer.getHeight() / 2, 3);
                      }
 
-                     Graphics var22 = var3.field_338;
+                     Graphics var22 = screenDrawer.field_338;
                      if(field_300 == -1) {
                         field_300 = GlobalStorage.method_711("progressbar_center.png");
                      }
@@ -303,42 +303,42 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                      GlobalStorage.getImage(field_301).getHeight();
                      var24 = field_300;
                      int var25 = method_383(GlobalStorage.getImage(field_300));
-                     method_371(var22, field_299, 0, var3.getHeight(), 36);
-                     method_375(var22, field_300, 1, 0, var7, var3.getHeight() - (var8 - var25) / 2, var3.getWidth() - var9, true, 32);
-                     method_371(var22, field_301, var3.getWidth(), var3.getHeight(), 40);
+                     method_371(var22, field_299, 0, screenDrawer.getHeight(), 36);
+                     method_375(var22, field_300, 1, 0, var7, screenDrawer.getHeight() - (var8 - var25) / 2, screenDrawer.getWidth() - var9, true, 32);
+                     method_371(var22, field_301, screenDrawer.getWidth(), screenDrawer.getHeight(), 40);
                      var25 = method_377(field_302);
                      var11 = method_378(field_302);
-                     var9 = var3.getWidth() - var9;
+                     var9 = screenDrawer.getWidth() - var9;
                      int var12 = var7 + (var9 - var7) * field_294 / 100;
-                     method_375(var22, field_302, 1, 0, var7 - var25, var3.getHeight() - (var8 - var11) / 2, var12, true, 32);
+                     method_375(var22, field_302, 1, 0, var7 - var25, screenDrawer.getHeight() - (var8 - var11) / 2, var12, true, 32);
                      if(field_294 >= 99) {
-                        method_371(var22, field_304, var9, var3.getHeight() - (var8 - method_378(field_304)) / 2, 36);
+                        method_371(var22, field_304, var9, screenDrawer.getHeight() - (var8 - method_378(field_304)) / 2, 36);
                      } else {
-                        method_371(var22, field_303, var12, var3.getHeight() - (var8 - method_378(field_303)) / 2, 36);
+                        method_371(var22, field_303, var12, screenDrawer.getHeight() - (var8 - method_378(field_303)) / 2, 36);
                      }
                   }
 
-                  if(!var3.field_316) {
+                  if(!screenDrawer.field_316) {
                      byte var10001;
                      switch(var19) {
                      case 1:
-                        var10001 = var3.menuScreen != null?var3.menuScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
+                        var10001 = screenDrawer.menuScreen != null?screenDrawer.menuScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      case 2:
-                        var10001 = var3.strategicScreen != null?var3.strategicScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
+                        var10001 = screenDrawer.strategicScreen != null?screenDrawer.strategicScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      case 3:
-                        var10001 = var3.battleScreen != null?var3.battleScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
+                        var10001 = screenDrawer.battleScreen != null?screenDrawer.battleScreen.method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      case 4:
-                        var10001 = var3.field_288 >= 0 && var3.field_313 != null && var3.field_313.length > var3.field_288 && var3.field_313[var3.field_288] != null?var3.field_313[var3.field_288].method_35():(Hero.self == null?0: Hero.self.method_932());
+                        var10001 = screenDrawer.field_288 >= 0 && screenDrawer.field_313 != null && screenDrawer.field_313.length > screenDrawer.field_288 && screenDrawer.field_313[screenDrawer.field_288] != null?screenDrawer.field_313[screenDrawer.field_288].method_35():(Hero.self == null?0: Hero.self.method_932());
                         break;
                      default:
                         var10001 = Hero.self == null?0: Hero.self.method_932();
                      }
 
                      var6 = var10001;
-                     Graphics var20 = var3.field_338;
+                     Graphics var20 = screenDrawer.field_338;
                      class_56 var23;
                      if((var23 = method_338()) != null) {
                         if(var23.field_439 == null) {
@@ -365,26 +365,26 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
                      }
                   }
 
-                  if(!var3.field_292) {
-                     var3.method_355(var3.field_338);
+                  if(!screenDrawer.field_292) {
+                     screenDrawer.method_355(screenDrawer.field_338);
                   }
 
-                  if(var3.method_324() && var3.field_320 != null) {
-                     var3.field_320.method_495();
-                     SocketListener.self.method_536(var3.field_320);
-                     var3.field_320.method_484(var3.field_338, (byte)0);
+                  if(screenDrawer.method_324() && screenDrawer.textScreen2 != null) {
+                     screenDrawer.textScreen2.method_495();
+                     SocketListener.self.writeLog(screenDrawer.textScreen2);
+                     screenDrawer.textScreen2.method_484(screenDrawer.field_338, (byte)0);
                   }
 
                   if(field_322) {
-                     var3.field_336 = (new Date(System.currentTimeMillis())).toString();
-                     var3.field_336 = var3.field_336.substring(var3.field_336.indexOf(":") - 2);
-                     var3.field_336 = var3.field_336.substring(0, var3.field_336.indexOf(" "));
-                     var3.field_338.setColor(0);
-                     var3.field_338.fillRect(8, 5 + Screen.field_30.field_500 - Screen.field_30.field_500 / 2, Screen.field_30.method_563(var3.field_336) + 3, Screen.field_30.field_500);
-                     Screen.field_30.method_564(var3.field_338, var3.field_336, 10 + Screen.field_30.method_563(var3.field_336) / 2, 5 + Screen.field_30.field_500, 3);
+                     screenDrawer.field_336 = (new Date(System.currentTimeMillis())).toString();
+                     screenDrawer.field_336 = screenDrawer.field_336.substring(screenDrawer.field_336.indexOf(":") - 2);
+                     screenDrawer.field_336 = screenDrawer.field_336.substring(0, screenDrawer.field_336.indexOf(" "));
+                     screenDrawer.field_338.setColor(0);
+                     screenDrawer.field_338.fillRect(8, 5 + Screen.field_30.field_500 - Screen.field_30.field_500 / 2, Screen.field_30.method_563(screenDrawer.field_336) + 3, Screen.field_30.field_500);
+                     Screen.field_30.method_564(screenDrawer.field_338, screenDrawer.field_336, 10 + Screen.field_30.method_563(screenDrawer.field_336) / 2, 5 + Screen.field_30.field_500, 3);
                   }
 
-                  var3.flushGraphics();
+                  screenDrawer.flushGraphics();
                } catch (Exception var14) {
                   SocketListener.logMessage("drawScreen: " + var14.toString());
                } catch (Error var15) {
@@ -537,11 +537,11 @@ public final class ScreenDrawer extends GameCanvas implements Runnable {
 
             if(!this.method_324()) {
                class_55 var10001 = new class_55((short)0, (short)0, (short)(this.getWidth() - 5), (short)(this.getHeight() - 5), true, false);
-               this.field_320 = var10001;
-               SocketListener.self.method_536(this.field_320);
+               this.textScreen2 = var10001;
+               SocketListener.self.writeLog(this.textScreen2);
                this.screenId = (byte)(this.screenId | 8);
             } else {
-               this.field_320 = null;
+               this.textScreen2 = null;
                this.screenId &= -9;
             }
          } else {
