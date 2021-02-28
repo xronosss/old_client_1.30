@@ -1,83 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- You may freely edit this file. See commented blocks below for -->
-<!-- some examples of how to customize the build. -->
-<!-- (If you delete it and reopen the project it will be recreated.) -->
-<project name="Lordmancer_1.30" default="jar" basedir=".">
-    <description>Builds, tests, and runs the project .</description>
-    <import file="nbproject/build-impl.xml"/>
-    <!--
+<project name="Lordmancer 1.30" default="clean.cmpl" basedir=".">
 
-            There exist several targets which are by default empty and which can be
-            used for execution of your tasks. These targets are usually executed
-            before and after some main targets. They are:
+	<target name="path">
+		<property name="fileName" value="Lordmancer_1.30.jar" />
 
-            pre-init:                 called before initialization of project properties
-            post-init:                called after initialization of project properties
-            pre-preprocess:           called before text preprocessing of sources
-            post-preprocess:          called after text preprocessing of sources
-            pre-compile:              called before source compilation
-            post-compile:             called after source compilation
-            pre-obfuscate:            called before obfuscation 
-            post-obfuscate:           called after obfuscation
-            pre-preverify:            called before preverification
-            post-preverify:           called after preverification
-            pre-jar:                  called before jar building
-            post-jar:                 called after jar building
-            pre-build:                called before final distribution building
-            post-build:               called after final distribution building
-            pre-clean:                called before cleaning build products
-            post-clean:               called after cleaning build products
+		<property name="srcDir" value="${basedir}\src" />
+		<echo>srcDir = ${srcDir}</echo>
 
-            Example of pluging a my-special-task after the compilation could look like
+		<property name="dstDir" value="${basedir}\dist" />
+		<echo>dstDir = ${dstDir}</echo>
 
-            <target name="post-compile">
-            <my-special-task>
-            <fileset dir="${build.classes.dir}"/>
-            </my-special-task>
-            </target>
+		<property name="classpath" value="C:\WTK2.5.2_01\lib\wma20.jar;C:\WTK2.5.2_01\lib\midpapi21.jar;C:\WTK2.5.2_01\lib\cldcapi11.jar" />
+		<echo>classpath = ${classpath}</echo>
+	</target>
 
-            For list of available properties check the imported
-            nbproject/build-impl.xml file.
+	<target name="checkDir" depends="path" description="Check directories exists">
+		<echo>Checking directories: ${srcDir}, ${dstDir}</echo>
+		<available property="srcExists" file="${srcDir}" type="dir" />
+		<available property="dstExists" file="${dstDir}" type="dir" />
+	</target>
 
-            Other way how to customize the build is by overriding existing main targets.
-            The target of interest are:
+	<target name="createSrcDir" depends="checkDir" unless="srcExists">
+		<echo>Creating directory: ${srcDir}</echo>
+		<mkdir dir="${srcdir}"/>
+	</target>
 
-            preprocess:               preprocessing
-            extract-libs:             extraction of libraries and resources
-            compile:                  compilation
-            create-jad:               construction of jad and jar manifest source
-            obfuscate:                obfuscation
-            preverify:                preverification
-            jar:                      jar archive building
-            run:                      execution
-            debug:                    execution in debug mode
-            build:                    building of the final distribution
-            javadoc:                  javadoc generation
+	<target name="createDstDir" depends="createSrcDir" unless="dstExists">
+		<echo>Creating directory: ${dstDir}</echo>
+		<mkdir dir="${dstDir}"/>
+	</target>
 
-            Example of overriding the target for project execution could look like
+	<target name="clean" depends="createDstDir" description="Clean jar">
+	    <echo>Delete all *.jar files</echo>
+	    <delete file="${dstDir}\*.jar" />
+	</target>
 
-            <target name="run" depends="init,jar">
-            <my-special-exec jadfile="${dist.dir}/${dist.jad}"/>
-            </target>
+	<target name="compile" depends="clean" description="Compile sources">
+	    <echo>Compile common java files</echo>
+	    <property name="sources" value="${srcDir}\mobak" />
+	    <javac srcdir="${sources}"
+	        destdir="${dstDir}"
+	        classpath="${classpath}"
+	        includeAntRuntime="false"
+	        includes="**/*.*" />
+	</target>
 
-            Be careful about correct dependencies when overriding original target. 
-            Again, for list of available properties which you can use check the target 
-            you are overriding in nbproject/build-impl.xml file.
+	<target name="copyRes" depends="compile" description="Copy resources files">
+		<echo>Copy res files...</echo>
+		<copy todir="${dstDir}\mobak\res">
+		    <fileset dir="${sources}\res"/>
+		</copy>
+		<echo>Copy help files...</echo>
+		<copy todir="${dstDir}\mobak\help">
+		    <fileset dir="${sources}\help"/>
+		</copy>
+	</target>
 
-            A special target for-all-configs can be used to run some specific targets for
-            all project configurations in a sequence. File nbproject/build-impl.xml 
-            already contains some "for-all" targets:
-    
-            jar-all
-            javadoc-all
-            clean-all
-      
-            Example of definition of target iterating over all project configurations:
-    
-            <target name="jar-all">
-            <property name="target.to.call" value="jar"/>
-            <antcall target="for-all-configs"/>
-            </target>
+	<target name="jar" depends="copyRes" description="Create jar">
+	    <echo>Make jar file</echo>
+	    <jar destfile="${dstDir}/${fileName}" manifest="${srcDir}/META-INF/MANIFEST.MF" > 
+		    <fileset dir="${dstDir}"/>
+	    </jar>
+	</target>
 
-            -->
+	<target name="clean.cmpl" depends="jar" description="Clean compiled files">
+		<delete dir="${dstDir}/mobak"/>
+	</target> 
+
 </project>

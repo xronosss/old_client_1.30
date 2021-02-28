@@ -9,8 +9,7 @@ MIDlet-Version: 1.30.0
 Nokia-MIDlet-Category: Game
 MicroEdition-Profile: MIDP-2.0
 Ant-Version: Apache Ant 1.8.2
-MIDlet-Permissions-Opt: javax.microedition.io.Connector.sms,javax.wire
- less.messaging.sms.send
+MIDlet-Permissions-Opt: javax.microedition.io.Connector.sms,javax.wireless.messaging.sms.send
 4: lordmancer.ru
 MIDlet-Vendor: Mobilniy Aktiv LLC
 MicroEdition-Configuration: CLDC-1.1
