@@ -1,4 +1,4 @@
-<project name="Lordmancer 1.30" default="all" basedir=".">
+<project name="Lordmancer 1.30" default="build" basedir=".">
 
 	<target name="path">
 		<property name="fileName" value="Lordmancer_1.30.jar" />
@@ -56,8 +56,14 @@
 	    </jar>
 	</target>
 
-	<target name="all" depends="jar" description="Clean compiled files">
+	<target name="build" depends="jar" description="Clean compiled files">
 		<delete dir="${dstDir}/mobak"/>
-	</target> 
+	</target>
+
+	<target name="run" depends="path" description="Run old client">
+		<java jar="${basedir}\lib\emulator.jar" fork="true">
+			<arg value="${dstDir}\${fileName}"/>
+		</java>
+	</target>
 
 </project>
