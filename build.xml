@@ -1,4 +1,4 @@
-<project name="Lordmancer 1.30" default="clean.cmpl" basedir=".">
+<project name="Lordmancer 1.30" default="all" basedir=".">
 
 	<target name="path">
 		<property name="fileName" value="Lordmancer_1.30.jar" />
@@ -15,23 +15,17 @@
 
 	<target name="checkDir" depends="path" description="Check directories exists">
 		<echo>Checking directories: ${srcDir}, ${dstDir}</echo>
-		<available property="srcExists" file="${srcDir}" type="dir" />
 		<available property="dstExists" file="${dstDir}" type="dir" />
 	</target>
 
-	<target name="createSrcDir" depends="checkDir" unless="srcExists">
-		<echo>Creating directory: ${srcDir}</echo>
-		<mkdir dir="${srcdir}"/>
-	</target>
-
-	<target name="createDstDir" depends="createSrcDir" unless="dstExists">
+	<target name="createDstDir" depends="checkDir" unless="dstExists">
 		<echo>Creating directory: ${dstDir}</echo>
 		<mkdir dir="${dstDir}"/>
 	</target>
 
 	<target name="clean" depends="createDstDir" description="Clean jar">
-	    <echo>Delete all *.jar files</echo>
-	    <delete file="${dstDir}\*.jar" />
+	    <echo>Delete old project ${fileName}</echo>
+	    <delete file="${dstDir}\${fileName}" />
 	</target>
 
 	<target name="compile" depends="clean" description="Compile sources">
@@ -62,7 +56,7 @@
 	    </jar>
 	</target>
 
-	<target name="clean.cmpl" depends="jar" description="Clean compiled files">
+	<target name="all" depends="jar" description="Clean compiled files">
 		<delete dir="${dstDir}/mobak"/>
 	</target> 
 
